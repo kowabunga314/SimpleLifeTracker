@@ -4,11 +4,16 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_d20_logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".WumboActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_wumbo"
+            android:theme="@style/FullscreenTheme"></activity>
         <activity
             android:name=".ActivityMain"
             android:configChanges="orientation|keyboardHidden|screenSize"

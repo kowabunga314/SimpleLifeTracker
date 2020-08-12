@@ -8,4 +8,5 @@
     <string name="string_button_negative">-</string>
     <string name="default_life">20</string>
     <string name="title_activity_main">FullscreenActivity</string>
+    <string name="title_activity_wumbo">FullscreenActivity</string>
 </resources>
