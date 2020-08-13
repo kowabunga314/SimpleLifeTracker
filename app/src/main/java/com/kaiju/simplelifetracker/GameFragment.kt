@@ -50,8 +50,8 @@ class GameFragment2 : Fragment() {
             val player1Fragment = FragmentManager.findFragment<PlayerFragment>(view.findViewById(R.id.fragment_player_one))
             val player2Fragment = FragmentManager.findFragment<PlayerFragment>(view.findViewById(R.id.fragment_player_two))
 
-            player1Fragment.handleResetScore(view)
-            player2Fragment.handleResetScore(view)
+            player1Fragment.handleResetScore(view.findViewById(R.id.fragment_player_one))
+            player2Fragment.handleResetScore(view.findViewById(R.id.fragment_player_two))
         }
     }
 
