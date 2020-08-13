@@ -92,11 +92,10 @@ class PlayerFragment : Fragment() {
 
     fun handleResetScore(view: View, startingLife: String = "20") {
 
-        Toast.makeText(this.context, "Resetting score to $startingLife", Toast.LENGTH_SHORT).show()
-        // Get the default starting life value
-        val newScore = startingLife
         // Set both scores to starting value
-        view.findViewById<TextView>(R.id.game_textview_score).text = newScore
+        val scoreTextView = view.findViewById<TextView>(R.id.game_textview_score)
+
+        scoreTextView.text = startingLife
     }
 
     companion object {
