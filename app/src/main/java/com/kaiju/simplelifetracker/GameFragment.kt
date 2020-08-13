@@ -2,9 +2,15 @@ package com.kaiju.simplelifetracker
 
 import android.os.Bundle
 import android.os.Handler
-import android.view.*
+import android.text.Layout
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.Button
+import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.marginTop
 import androidx.fragment.app.Fragment
 
 /**
@@ -70,6 +76,13 @@ class GameFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // Set margin
+//        val statusBarHeight = this.getStatusBarHeight()
+//        val layoutView = view.findViewById<FrameLayout>(R.id.layout_game)
+//        val layoutParams = layoutView.layoutParams as ViewGroup.MarginLayoutParams
+//        layoutParams.topMargin = statusBarHeight
+//        layoutView.layoutParams = layoutParams
 
         visible = true
 
@@ -150,6 +163,15 @@ class GameFragment : Fragment() {
     private fun delayedHide(delayMillis: Int) {
         hideHandler.removeCallbacks(hideRunnable)
         hideHandler.postDelayed(hideRunnable, delayMillis.toLong())
+    }
+
+    private fun getStatusBarHeight(): Int {
+        var result = 0
+        val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
+        if (resourceId > 0) {
+            result = resources.getDimensionPixelSize(resourceId)
+        }
+        return result
     }
 
     companion object {
