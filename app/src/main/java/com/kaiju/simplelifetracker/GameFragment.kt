@@ -2,10 +2,7 @@ package com.kaiju.simplelifetracker
 
 import android.os.Bundle
 import android.os.Handler
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.view.WindowManager
+import android.view.*
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -16,6 +13,7 @@ import androidx.fragment.app.Fragment
  */
 class GameFragment : Fragment() {
     private val hideHandler = Handler()
+    private val startingLife: String = "20"
 
     @Suppress("InlinedApi")
     private val hidePart2Runnable = Runnable {
@@ -57,6 +55,11 @@ class GameFragment : Fragment() {
     private var fullscreenContent: View? = null
     private var fullscreenContentControls: View? = null
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -70,16 +73,16 @@ class GameFragment : Fragment() {
 
         visible = true
 
-//        dummyButton = view.findViewById(R.id.dummy_button)
-//        fullscreenContent = view.findViewById(R.id.fullscreen_content)
-//        fullscreenContentControls = view.findViewById(R.id.fullscreen_content_controls)
         // Set up the user interaction to manually show or hide the system UI.
         fullscreenContent?.setOnClickListener { toggle() }
 
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
-        dummyButton?.setOnTouchListener(delayHideTouchListener)
+        val menuButton = view.findViewById<Button>(R.id.game_button_menu)
+        menuButton.setOnClickListener {
+
+        }
     }
 
     override fun onResume() {

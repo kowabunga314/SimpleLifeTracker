@@ -149,5 +149,8 @@ class ActivityMain : AppCompatActivity() {
          * and a change of the status and navigation bar.
          */
         private const val UI_ANIMATION_DELAY = 300
+
+        // Starting value for life
+        private val STARTING_LIFE = 20
     }
 }
