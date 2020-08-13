@@ -9,4 +9,6 @@
     <string name="default_life">20</string>
     <string name="title_activity_main">FullscreenActivity</string>
     <string name="title_activity_wumbo">FullscreenActivity</string>
+    <string name="title_reset_game">Reset Game</string>
+    <string name="title_edit_starting_life">Edit Starting Life</string>
 </resources>

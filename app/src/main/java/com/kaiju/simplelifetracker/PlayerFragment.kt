@@ -90,7 +90,9 @@ class PlayerFragment : Fragment() {
 
     }
 
-    private fun handleResetScore(view: View) {
+    fun handleResetScore(view: View, startingLife: String = "20") {
+
+        Toast.makeText(this.context, "Resetting score to $startingLife", Toast.LENGTH_SHORT).show()
         // Get the default starting life value
         val newScore = startingLife
         // Set both scores to starting value
