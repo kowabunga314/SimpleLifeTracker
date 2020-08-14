@@ -42,9 +42,9 @@ class PlayerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val positiveButton = view.findViewById<LinearLayout>(R.id.game_container_button_positive)
+        val positiveButton = view.findViewById<LinearLayout>(R.id.game_button_positive)
         val scoreTextView = view.findViewById<TextView>(R.id.game_textview_score)
-        val negativeButton = view.findViewById<LinearLayout>(R.id.game_container_button_negative)
+        val negativeButton = view.findViewById<LinearLayout>(R.id.game_button_negative)
 
         positiveButton.setOnClickListener { handleIncrementScore(scoreTextView) }
         positiveButton.setOnLongClickListener {
