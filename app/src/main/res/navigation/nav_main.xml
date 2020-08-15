@@ -9,14 +9,5 @@
         android:id="@+id/gameFragment"
         android:name="com.kaiju.simplelifetracker.GameFragment"
         android:label="fragment_game"
-        tools:layout="@layout/fragment_game" >
-        <action
-            android:id="@+id/action_gameFragment_to_optionsFragment"
-            app:destination="@id/optionsFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/optionsFragment"
-        android:name="com.kaiju.simplelifetracker.OptionsFragment"
-        android:label="fragment_options"
-        tools:layout="@layout/fragment_options" />
+        tools:layout="@layout/fragment_game" />
 </navigation>
