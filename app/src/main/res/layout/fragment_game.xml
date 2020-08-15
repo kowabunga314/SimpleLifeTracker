@@ -34,7 +34,7 @@
         </RelativeLayout>
 
         <Button
-            android:id="@+id/game_button_options"
+            android:id="@+id/game_button_menu"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_gravity="center"
