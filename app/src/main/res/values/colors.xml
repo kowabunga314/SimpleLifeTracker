@@ -5,9 +5,13 @@
     <color name="colorAccent">#FFFFFF</color>
     <color name="black_overlay">#66000000</color>
 
-    <color name="backgroundPrimary">#FFFFFF</color>
-    <color name="backgroundSecondary">#CFCECE</color>
-    <color name="backgroundAccent">#919191</color>
+<!--    <color name="backgroundPrimary">#FFFFFF</color>-->
+<!--    <color name="backgroundSecondary">#CFCECE</color>-->
+<!--    <color name="backgroundAccent">#919191</color>-->
+
+    <color name="backgroundPrimary">#202020</color>
+    <color name="backgroundSecondary">#2C2C2C</color>
+    <color name="backgroundAccent">#878787</color>
 
     <color name="textPrimary">#717171</color>
     <color name="textSecondary">#535353</color>
