@@ -6,11 +6,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundPrimary"
-    tools:context=".GameActivity">
+    tools:context=".GameActivity"
+    android:background="@color/backgroundPrimary">
 
     <fragment
-        android:name="com.kaiju.simplelifetracker.GameFragment2"
+        android:name="com.kaiju.simplelifetracker.GameFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
