@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".GameFragment"
+    tools:context=".game.GameFragment"
     android:weightSum="13"
     android:background="@color/backgroundPrimary">
 
@@ -27,7 +27,7 @@
 
             <fragment
                 android:id="@+id/fragment_player_two"
-                android:name="com.kaiju.simplelifetracker.PlayerFragment"
+                android:name="com.kaiju.simplelifetracker.game.PlayerFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
 
@@ -56,7 +56,7 @@
 
             <fragment
                 android:id="@+id/fragment_player_one"
-                android:name="com.kaiju.simplelifetracker.PlayerFragment"
+                android:name="com.kaiju.simplelifetracker.game.PlayerFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layout_constraintBottom_toBottomOf="parent"

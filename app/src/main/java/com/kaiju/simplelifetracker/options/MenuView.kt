@@ -1,4 +1,4 @@
 package com.kaiju.simplelifetracker.options
 
-class MenuView(pos: Int) {
+class MenuView(setting_key: String) {
 }
