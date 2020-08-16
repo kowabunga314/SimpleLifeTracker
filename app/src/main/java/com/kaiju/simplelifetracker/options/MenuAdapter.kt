@@ -13,7 +13,7 @@ class MenuAdapter(
     class MenuViewHolder(itemView: View, private var activity: AppCompatActivity
         ): RecyclerView.ViewHolder(itemView) {
 
-        private val optionKey = itemView.option_key
+//        private val optionKey = itemView.option_key
 
         fun bind(menuView: MenuView) {
 
