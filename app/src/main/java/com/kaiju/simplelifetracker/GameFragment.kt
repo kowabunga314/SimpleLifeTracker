@@ -42,7 +42,7 @@ class GameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val optionsButton = view.findViewById<Button>(R.id.game_button_options)
+        val optionsButton = view.findViewById<Button>(R.id.game_button_menu)
         optionsButton.setOnClickListener {
             val player1Fragment = FragmentManager.findFragment<PlayerFragment>(view.findViewById(R.id.fragment_player_one))
             val player2Fragment = FragmentManager.findFragment<PlayerFragment>(view.findViewById(R.id.fragment_player_two))

@@ -1,5 +1,6 @@
 package com.kaiju.simplelifetracker
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
