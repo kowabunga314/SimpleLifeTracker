@@ -1,8 +1,9 @@
-package com.kaiju.simplelifetracker
+package com.kaiju.simplelifetracker.game
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.kaiju.simplelifetracker.R
 
 class GameActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

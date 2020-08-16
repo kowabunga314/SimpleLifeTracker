@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:padding="10dp"
     android:weightSum="8"
-    tools:context=".PlayerFragment"
+    tools:context=".game.PlayerFragment"
     android:orientation="vertical"
     android:background="@color/backgroundPrimary">
 

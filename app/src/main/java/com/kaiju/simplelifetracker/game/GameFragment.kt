@@ -1,4 +1,4 @@
-package com.kaiju.simplelifetracker
+package com.kaiju.simplelifetracker.game
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.FragmentManager
+import com.kaiju.simplelifetracker.R
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -44,8 +45,12 @@ class GameFragment : Fragment() {
 
         val optionsButton = view.findViewById<Button>(R.id.game_button_menu)
         optionsButton.setOnClickListener {
-            val player1Fragment = FragmentManager.findFragment<PlayerFragment>(view.findViewById(R.id.fragment_player_one))
-            val player2Fragment = FragmentManager.findFragment<PlayerFragment>(view.findViewById(R.id.fragment_player_two))
+            val player1Fragment = FragmentManager.findFragment<PlayerFragment>(view.findViewById(
+                R.id.fragment_player_one
+            ))
+            val player2Fragment = FragmentManager.findFragment<PlayerFragment>(view.findViewById(
+                R.id.fragment_player_two
+            ))
 
             player1Fragment.handleResetScore(view.findViewById(R.id.fragment_player_one))
             player2Fragment.handleResetScore(view.findViewById(R.id.fragment_player_two))
