@@ -1,13 +1,22 @@
 <resources>
+
+    <!-- ## General app stuff ## -->
     <string name="app_name">Simple Life Tracker</string>
+
+    <!-- ## Game stuff ## -->
+        <!--  Button Labels  -->
     <string name="default_life_label">Starting Life</string>
     <string name="string_button_positive">+</string>
     <string name="string_button_negative">-</string>
+        <!--  TextViews  -->
     <string name="default_life">20</string>
-    <string name="title_activity_main">FullscreenActivity</string>
+    <string name="title_activity_main">Quickstart Game</string>
+    <string name="button_game_menu">Menu</string>
+
+    <!-- ## Options stuff ## -->
     <string name="title_reset_game">Reset Game</string>
     <string name="title_edit_starting_life">Edit Starting Life</string>
-    <string name="button_game_menu">Menu</string>
     <string name="display_mode_label">Enable Dark Mode</string>
     <string name="default_display_mode">Default</string>
+
 </resources>
