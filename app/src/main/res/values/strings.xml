@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Simple Life Tracker</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="default_life_label">Starting Life</string>
     <string name="string_button_positive">+</string>
     <string name="string_button_negative">-</string>
     <string name="default_life">20</string>
@@ -8,4 +8,6 @@
     <string name="title_reset_game">Reset Game</string>
     <string name="title_edit_starting_life">Edit Starting Life</string>
     <string name="button_game_menu">Menu</string>
+    <string name="display_mode_label">Enable Dark Mode</string>
+    <string name="default_display_mode">Default</string>
 </resources>
