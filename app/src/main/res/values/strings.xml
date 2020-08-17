@@ -11,7 +11,7 @@
         <!--  TextViews  -->
     <string name="default_life">20</string>
     <string name="title_activity_main">Quickstart Game</string>
-    <string name="button_game_menu">Menu</string>
+    <string name="button_game_menu">Reset</string>
 
     <!-- ## Options stuff ## -->
     <string name="title_reset_game">Reset Game</string>
