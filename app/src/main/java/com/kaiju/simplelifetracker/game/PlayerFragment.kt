@@ -22,6 +22,7 @@ private const val STARTING_LIFE = "starting_life"
 class PlayerFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var startingLife: String? = "20"
+    private var mToast: Toast? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,8 +82,9 @@ class PlayerFragment : Fragment() {
         // Check to see if this action will send player life into negative range
         if (newScore < 0) {
             // STOP RESISTING
-            val toast = Toast.makeText(context, "He's dead, Jim", Toast.LENGTH_SHORT)
-            toast.show()
+            if (mToast != null) mToast?.cancel()
+            mToast = Toast.makeText(context, "He's dead, Jim", Toast.LENGTH_SHORT)
+            mToast?.show()
         }
 
         // Set TextView value to new score
