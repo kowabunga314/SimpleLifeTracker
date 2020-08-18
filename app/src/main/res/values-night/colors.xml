@@ -5,9 +5,9 @@
     <color name="colorAccent">#FFFFFF</color>
     <color name="black_overlay">#66000000</color>
 
-    <color name="backgroundPrimary">#232323</color>
-    <color name="backgroundSecondary">#272727</color>
-    <color name="backgroundAccent">#878787</color>
+    <color name="backgroundPrimary">#050505</color>
+    <color name="backgroundSecondary">#141414</color>
+    <color name="backgroundAccent">#FFFFFF</color>
 
     <color name="textPrimary">#717171</color>
     <color name="textSecondary">#535353</color>
