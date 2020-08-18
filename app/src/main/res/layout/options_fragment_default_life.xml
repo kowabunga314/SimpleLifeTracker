@@ -8,24 +8,26 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="8dp">
+        android:padding="8dp" >
 
         <TextView
-            android:id="@+id/textview_default_life_label"
+            android:id="@+id/textview_display_mode_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/default_life_label"
-            android:layout_gravity="center_vertical"
-            android:layout_alignParentStart="true"/>
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"/>
 
         <EditText
             android:id="@+id/editTextNumberSigned"
-            android:layout_width="wrap_content"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
-            android:text="20"
+            android:layout_marginEnd="20dp"
+            android:text="@string/default_life"
             android:ems="10"
             android:inputType="numberSigned"
-            android:layout_alignParentEnd="true"/>
+            android:layout_alignParentEnd="true"
+            android:importantForAutofill="no" />
 
     </RelativeLayout>
 

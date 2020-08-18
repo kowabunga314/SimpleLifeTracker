@@ -26,15 +26,15 @@
             android:id="@+id/game_button_positive"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
-            android:layout_gravity="center"
             android:background="@drawable/rounded_button_low_vis"
-            android:fontFamily="sans-serif-medium"
+            android:elevation="8dp"
+            android:fontFamily="sans-serif-light"
             android:text="@string/string_button_positive"
             android:textColor="@color/textPrimary"
-            android:textStyle="bold"
-            android:elevation="8dp"/>
+            android:textSize="24sp" />
 
     </LinearLayout>
 
@@ -48,7 +48,7 @@
         android:gravity="center"
         android:text="@string/default_life"
         android:textColor="@color/textPrimary"
-        android:textSize="48sp"
+        android:textSize="64sp"
         app:layout_constraintTop_toBottomOf="@id/game_container_button_positive" />
 
     <LinearLayout
@@ -65,15 +65,15 @@
             android:id="@+id/game_button_negative"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
-            android:layout_gravity="center"
             android:background="@drawable/rounded_button_low_vis"
-            android:fontFamily="sans-serif-medium"
+            android:elevation="8dp"
+            android:fontFamily="sans-serif-light"
             android:text="@string/string_button_negative"
             android:textColor="@color/textPrimary"
-            android:textStyle="bold"
-            android:elevation="8dp"/>
+            android:textSize="24sp"/>
 
     </LinearLayout>
 </LinearLayout>

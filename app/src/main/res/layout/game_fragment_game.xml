@@ -5,20 +5,20 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".game.GameFragment"
-    android:weightSum="13"
+    android:weightSum="15"
     android:background="@color/backgroundPrimary">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:weightSum="13"
+        android:weightSum="15"
         android:orientation="vertical"
         android:background="@color/backgroundPrimary">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="6"
+            android:layout_weight="7"
             android:rotation="179.9"
             android:gravity="center"
             android:layout_gravity="center"
@@ -40,6 +40,7 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:background="@drawable/rounded_button_low_vis"
+            android:fontFamily="sans-serif-light"
             android:paddingLeft="40dp"
             android:paddingRight="40dp"
             android:text="@string/button_game_menu"
@@ -48,7 +49,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="6"
+            android:layout_weight="7"
             android:gravity="center"
             android:layout_gravity="center"
             android:clipToPadding="false"
