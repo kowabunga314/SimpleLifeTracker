@@ -17,6 +17,6 @@
     <string name="title_reset_game">Reset Game</string>
     <string name="title_edit_starting_life">Edit Starting Life</string>
     <string name="display_mode_label">Enable Dark Mode</string>
-    <string name="default_display_mode">Default</string>
+    <string name="default_display_mode">Android Default</string>
 
 </resources>
