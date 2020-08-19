@@ -4,11 +4,11 @@
     <string name="app_name">Simple Life Tracker</string>
 
     <!-- ## Game stuff ## -->
-        <!--  Button Labels  -->
+    <!--  Button Labels  -->
     <string name="default_life_label">Starting Life</string>
     <string name="string_button_positive">+</string>
     <string name="string_button_negative">-</string>
-        <!--  TextViews  -->
+    <!--  TextViews  -->
     <string name="default_life">20</string>
     <string name="title_activity_main">Quickstart Game</string>
     <string name="button_game_menu">Reset</string>
@@ -18,5 +18,21 @@
     <string name="title_edit_starting_life">Edit Starting Life</string>
     <string name="display_mode_label">Enable Dark Mode</string>
     <string name="default_display_mode">Android Default</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
 
 </resources>
