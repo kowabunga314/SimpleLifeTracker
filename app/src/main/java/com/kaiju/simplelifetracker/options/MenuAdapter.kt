@@ -11,7 +11,7 @@ class MenuAdapter(
 ):RecyclerView.Adapter<MenuAdapter.MenuViewHolder>() {
 
     class MenuViewHolder(itemView: View, private var activity: AppCompatActivity
-        ): RecyclerView.ViewHolder(itemView) {
+    ): RecyclerView.ViewHolder(itemView) {
 
 //        private val optionKey = itemView.option_key
 
@@ -25,11 +25,16 @@ class MenuAdapter(
         TODO("Not yet implemented")
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun getItemCount() = itemList.size
 
     override fun onBindViewHolder(holder: MenuViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val currentItem = itemList[position]
+
+        when (holder) {
+
+            is MenuViewHolder -> {
+                holder.bind(currentItem)
+            }
+        }
     }
 }
