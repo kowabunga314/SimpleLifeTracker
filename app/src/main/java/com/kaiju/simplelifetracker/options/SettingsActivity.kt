@@ -74,6 +74,7 @@ class SettingsActivity : AppCompatActivity() {
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.root_preferences, rootKey)
 
+            // Set starting life preference to only accept numeric values
             val editTextPreference = preferenceManager.findPreference<EditTextPreference>("starting_life")
             editTextPreference?.setOnBindEditTextListener { editText ->
                 editText.inputType = InputType.TYPE_CLASS_NUMBER
