@@ -11,10 +11,9 @@
             app:summary="@string/preference_display_mode_description" />
 
         <EditTextPreference
-            app:key="starting_life"
+            app:key="@string/key_starting_life"
             app:title="@string/preference_title_edit_starting_life"
             app:defaultValue="@string/starting_life"
-            app:useSimpleSummaryProvider="true"
             app:summary="@string/preference_starting_life_summary" />
 
     </PreferenceCategory>

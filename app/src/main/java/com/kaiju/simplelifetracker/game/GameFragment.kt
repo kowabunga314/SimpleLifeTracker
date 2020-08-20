@@ -56,18 +56,27 @@ class GameFragment : Fragment() {
         }
 
         optionsButton.setOnLongClickListener {
-            val player1Fragment = FragmentManager.findFragment<PlayerFragment>(view.findViewById(
-                R.id.fragment_player_one
-            ))
-            val player2Fragment = FragmentManager.findFragment<PlayerFragment>(view.findViewById(
-                R.id.fragment_player_two
-            ))
-
-            player1Fragment.handleResetScore(view.findViewById(R.id.fragment_player_one))
-            player2Fragment.handleResetScore(view.findViewById(R.id.fragment_player_two))
+            resetScores(view)
 
             true
         }
+
+        // Change scores to value set in prefs
+        resetScores(view)
+    }
+
+    fun resetScores(view: View) {
+
+        val player1Fragment = FragmentManager.findFragment<PlayerFragment>(view.findViewById(
+            R.id.fragment_player_one
+        ))
+        val player2Fragment = FragmentManager.findFragment<PlayerFragment>(view.findViewById(
+            R.id.fragment_player_two
+        ))
+
+        player1Fragment.handleResetScore(view.findViewById(R.id.fragment_player_one))
+        player2Fragment.handleResetScore(view.findViewById(R.id.fragment_player_two))
+
     }
 
     companion object {
