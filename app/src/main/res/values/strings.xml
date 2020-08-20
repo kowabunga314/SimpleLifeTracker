@@ -9,13 +9,13 @@
     <string name="string_button_positive">+</string>
     <string name="string_button_negative">-</string>
     <!--  TextViews  -->
-    <string name="default_life">20</string>
+    <string name="starting_life">20</string>
     <string name="title_activity_main">Quickstart Game</string>
     <string name="button_game_menu">Reset</string>
 
     <!-- ## Options stuff ## -->
     <string name="title_reset_game">Reset Game</string>
-    <string name="title_edit_starting_life">Edit Starting Life</string>
+    <string name="preference_title_edit_starting_life">Edit Starting Life</string>
     <string name="display_mode_label">Enable Dark Mode</string>
     <string name="default_display_mode">Android Default</string>
     <string name="title_activity_settings">SettingsActivity</string>
@@ -29,5 +29,7 @@
 
     <!-- Game Preferences -->
     <string name="sync_title">Sync email periodically</string>
+    <string name="preference_display_mode_description">Sets the theme of the app.</string>
+    <string name="preference_starting_life_summary">Control the starting life value for new games.</string>
 
 </resources>

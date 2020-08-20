@@ -6,9 +6,10 @@
             app:defaultValue="system_default"
             app:entries="@array/display_modes"
             app:entryValues="@array/display_values"
-            app:key="reply"
+            app:key="display_mode"
             app:title="@string/display_title"
-            app:useSimpleSummaryProvider="true" />
+            app:useSimpleSummaryProvider="true"
+            app:summary="@string/preference_display_mode_description"/>
 
     </PreferenceCategory>
 
@@ -16,9 +17,10 @@
 
         <EditTextPreference
             app:key="starting_life"
-            app:title="@string/title_edit_starting_life"
-            app:defaultValue="@string/default_life"
-            app:useSimpleSummaryProvider="true" />
+            app:title="@string/preference_title_edit_starting_life"
+            app:defaultValue="@string/starting_life"
+            app:useSimpleSummaryProvider="true"
+            app:summary="@string/preference_starting_life_summary"/>
 
     </PreferenceCategory>
 

@@ -1,5 +1,7 @@
 package com.kaiju.simplelifetracker.game
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.FragmentManager
 import com.kaiju.simplelifetracker.R
+import com.kaiju.simplelifetracker.options.SettingsActivity
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -44,7 +47,15 @@ class GameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val optionsButton = view.findViewById<Button>(R.id.game_button_menu)
+
         optionsButton.setOnClickListener {
+
+            val intent = Intent(activity, SettingsActivity::class.java)
+            startActivity(intent)
+
+        }
+
+        optionsButton.setOnLongClickListener {
             val player1Fragment = FragmentManager.findFragment<PlayerFragment>(view.findViewById(
                 R.id.fragment_player_one
             ))
@@ -54,6 +65,8 @@ class GameFragment : Fragment() {
 
             player1Fragment.handleResetScore(view.findViewById(R.id.fragment_player_one))
             player2Fragment.handleResetScore(view.findViewById(R.id.fragment_player_two))
+
+            true
         }
     }
 

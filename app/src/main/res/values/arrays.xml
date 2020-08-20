@@ -1,14 +1,14 @@
 <resources>
     <!-- Display Preference -->
     <string-array name="display_modes">
-        <item>system_default</item>
-        <item>light</item>
-        <item>dark</item>
-    </string-array>
-
-    <string-array name="display_values">
         <item>System Default</item>
         <item>Light</item>
         <item>Dark</item>
+    </string-array>
+
+    <string-array name="display_values">
+        <item>system_default</item>
+        <item>light</item>
+        <item>dark</item>
     </string-array>
 </resources>

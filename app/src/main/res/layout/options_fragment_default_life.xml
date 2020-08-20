@@ -23,7 +23,7 @@
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
-            android:text="@string/default_life"
+            android:text="@string/starting_life"
             android:ems="10"
             android:inputType="numberSigned"
             android:layout_alignParentEnd="true"
