@@ -79,6 +79,10 @@ class GameFragment : Fragment() {
 
     }
 
+    interface ResetGame {
+        fun resetScores() { resetScores() }
+    }
+
     companion object {
         /**
          * Use this factory method to create a new instance of
