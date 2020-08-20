@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.preference.PreferenceManager
 import com.kaiju.simplelifetracker.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -92,7 +93,11 @@ class PlayerFragment : Fragment() {
 
     }
 
-    fun handleResetScore(view: View, startingLife: String = "20") {
+    fun handleResetScore(view: View) {
+
+        // Get starting life value from preferences
+        val prefs = PreferenceManager.getDefaultSharedPreferences(activity)
+        val startingLife = prefs.getString("starting_life", "20")
 
         // Set both scores to starting value
         val scoreTextView = view.findViewById<TextView>(R.id.game_textview_score)
