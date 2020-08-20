@@ -1,10 +1,14 @@
 package com.kaiju.simplelifetracker.options
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.*
 import com.kaiju.simplelifetracker.R
+import com.kaiju.simplelifetracker.game.GameActivity
+import com.kaiju.simplelifetracker.game.GameFragment
 
 class SettingsActivity : AppCompatActivity() {
 
@@ -32,6 +36,15 @@ class SettingsActivity : AppCompatActivity() {
                 editText.inputType = InputType.TYPE_CLASS_NUMBER
             }
 
+            // Define behavior for reset preference
+            preferenceManager.findPreference<EditTextPreference>(
+                "key_reset_game")?.setOnPreferenceClickListener {
+//                GameFragment.resetScores()
+
+                activity?.finish()
+
+                true
+            }
 
         }
 
