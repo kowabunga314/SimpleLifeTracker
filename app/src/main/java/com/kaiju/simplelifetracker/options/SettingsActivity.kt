@@ -1,6 +1,7 @@
 package com.kaiju.simplelifetracker.options
 
 import android.os.Bundle
+import android.text.InputType
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.*
 import com.kaiju.simplelifetracker.R
@@ -72,6 +73,13 @@ class SettingsActivity : AppCompatActivity() {
 
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.root_preferences, rootKey)
+
+            val editTextPreference = preferenceManager.findPreference<EditTextPreference>("starting_life")
+            editTextPreference?.setOnBindEditTextListener { editText ->
+                editText.inputType = InputType.TYPE_CLASS_NUMBER
+            }
+
+
         }
 
     }
