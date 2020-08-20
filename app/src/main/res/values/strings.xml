@@ -1,7 +1,7 @@
 <resources>
 
     <!-- ## General app stuff ## -->
-    <string name="app_name">Simple Life Tracker</string>
+    <string name="app_name">Spindown - MTG Life Tracker</string>
 
     <!-- ## Game stuff ## -->
     <!--  Button Labels  -->
@@ -11,7 +11,7 @@
     <!--  TextViews  -->
     <string name="starting_life">20</string>
     <string name="title_activity_main">Quickstart Game</string>
-    <string name="button_game_menu">Reset</string>
+    <string name="button_game_menu">Menu</string>
 
     <!-- ## Options stuff ## -->
     <string name="title_reset_game">Reset Game</string>
