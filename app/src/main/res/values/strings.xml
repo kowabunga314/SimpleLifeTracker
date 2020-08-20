@@ -21,8 +21,8 @@
     <string name="title_activity_settings">SettingsActivity</string>
 
     <!-- Preference Titles -->
-    <string name="display_header">Display</string>
-    <string name="game_header">Game</string>
+    <string name="basic_header">Basic</string>
+    <string name="advanced_header">Advanced</string>
 
     <!-- Display Preferences -->
     <string name="display_title">Display Mode</string>

@@ -8,6 +8,7 @@
     <color name="backgroundPrimary">#050505</color>
     <color name="backgroundSecondary">#141414</color>
     <color name="backgroundAccent">#FFFFFF</color>
+    <color name="backgroundAlternate">#141414</color>
 
     <color name="textPrimary">#717171</color>
     <color name="textSecondary">#535353</color>

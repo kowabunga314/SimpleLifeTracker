@@ -7,8 +7,9 @@
     <color name="black_overlay">#66000000</color>
 
     <color name="backgroundPrimary">#FFFFFF</color>
-    <color name="backgroundSecondary">#FFFFFF</color>
-    <color name="backgroundAccent">#919191</color>
+    <color name="backgroundSecondary">#9C9999</color>
+    <color name="backgroundAccent">#737373</color>
+    <color name="backgroundAlternate">#FFFFFF</color>
 
     <color name="textPrimary">#717171</color>
     <color name="textSecondary">#535353</color>
