@@ -5,10 +5,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.preference.*
 import com.kaiju.simplelifetracker.R
 import com.kaiju.simplelifetracker.game.GameActivity
 import com.kaiju.simplelifetracker.game.GameFragment
+import kotlinx.android.synthetic.main.game_fragment_game.*
 
 class SettingsActivity : AppCompatActivity() {
 
@@ -37,9 +40,13 @@ class SettingsActivity : AppCompatActivity() {
             }
 
             // Define behavior for reset preference
-            preferenceManager.findPreference<EditTextPreference>(
+            preferenceManager.findPreference<Preference>(
                 "key_reset_game")?.setOnPreferenceClickListener {
-//                GameFragment.resetScores()
+
+                val resetFlag = preferenceManager.findPreference<CheckBoxPreference>("key_flag_reset_game")
+                if (resetFlag != null) {
+                    resetFlag.isChecked = true
+                }
 
                 activity?.finish()
 

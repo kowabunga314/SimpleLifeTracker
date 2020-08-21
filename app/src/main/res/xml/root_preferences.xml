@@ -1,11 +1,18 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:key="default_preferences">
 
     <PreferenceCategory app:title="@string/basic_header" >
 
-        <EditTextPreference
+        <Preference
             app:key="key_reset_game"
             app:title="Reset"
-            app:summary="Reset current game" />
+            app:summary="Reset current game"/>
+
+        <CheckBoxPreference
+            app:key="key_flag_reset_game"
+            app:isPreferenceVisible="false"
+            app:defaultValue="false"/>
 
         <ListPreference
             app:defaultValue="key_system_default"

@@ -1,6 +1,7 @@
 package com.kaiju.simplelifetracker.game
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.FragmentManager
+import androidx.preference.CheckBoxPreference
+import androidx.preference.PreferenceManager
 import com.kaiju.simplelifetracker.R
 import com.kaiju.simplelifetracker.options.SettingsActivity
 
@@ -65,6 +68,30 @@ class GameFragment : Fragment() {
         resetScores(view)
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        // Check for reset flag
+        if (getResetFlag()) {
+            view?.let { resetScores(it) }
+            clearResetFlag()
+        }
+    }
+
+    private fun getResetFlag(): Boolean {
+        val sharedPref = activity?.getSharedPreferences("default_preferences", Context.MODE_PRIVATE)
+        val resetFlag: Boolean = sharedPref!!.getBoolean("key_flag_reset_game", false)
+        return resetFlag
+    }
+
+    private fun clearResetFlag() {
+        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
+        with (sharedPref.edit()) {
+            putBoolean("key_flag_reset_game", false)
+            commit()
+        }
+    }
+
     fun resetScores(view: View) {
 
         val player1Fragment = FragmentManager.findFragment<PlayerFragment>(view.findViewById(
@@ -77,10 +104,6 @@ class GameFragment : Fragment() {
         player1Fragment.handleResetScore(view.findViewById(R.id.fragment_player_one))
         player2Fragment.handleResetScore(view.findViewById(R.id.fragment_player_two))
 
-    }
-
-    interface ResetGame {
-        fun resetScores() { resetScores() }
     }
 
     companion object {
@@ -101,5 +124,9 @@ class GameFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+
+        fun resetGame(view: View) {
+            GameFragment().resetScores(view)
+        }
     }
 }
