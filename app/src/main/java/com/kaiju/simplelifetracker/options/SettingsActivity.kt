@@ -1,6 +1,7 @@
 package com.kaiju.simplelifetracker.options
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
@@ -56,4 +57,5 @@ class SettingsActivity : AppCompatActivity() {
         }
 
     }
+
 }
