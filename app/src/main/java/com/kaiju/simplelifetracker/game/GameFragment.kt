@@ -72,20 +72,20 @@ class GameFragment : Fragment() {
         super.onResume()
 
         // Check for reset flag
-        if (getResetFlag() == "true") {
+        if (getResetFlag() == true) {
             view?.let { resetScores(it) }
             clearResetFlag()
         }
     }
 
-    private fun getResetFlag(): String? {
-        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)
-        val resetFlag = sharedPref?.getString(getString(R.string.key_starting_life), "wumbo")
+    private fun getResetFlag(): Boolean? {
+        val prefs = PreferenceManager.getDefaultSharedPreferences(activity)
+        val resetFlag = prefs.getBoolean("key_flag_reset_game", false)
         return resetFlag
     }
 
     private fun clearResetFlag() {
-        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
+        val sharedPref = PreferenceManager.getDefaultSharedPreferences(activity) ?: return
         with (sharedPref.edit()) {
             putBoolean("key_flag_reset_game", false)
             commit()
