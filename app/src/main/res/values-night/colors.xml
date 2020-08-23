@@ -5,13 +5,13 @@
     <color name="colorAccent">#FFFFFF</color>
     <color name="black_overlay">#66000000</color>
 
-    <color name="backgroundPrimary">#050505</color>
-    <color name="backgroundSecondary">#141414</color>
+    <color name="backgroundPrimary">#1B1B1B</color>
+    <color name="backgroundSecondary">#202020</color>
     <color name="backgroundAccent">#FFFFFF</color>
-    <color name="backgroundAlternate">#141414</color>
+    <color name="backgroundAlternate">#2B2B2B</color>
 
-    <color name="textPrimary">#717171</color>
-    <color name="textSecondary">#535353</color>
+    <color name="textPrimary">#FFFCFC</color>
+    <color name="textSecondary">#989898</color>
     <color name="textAccent">#000000</color>
 
 </resources>
