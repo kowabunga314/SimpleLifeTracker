@@ -11,6 +11,8 @@ import com.kaiju.simplelifetracker.R
 class SettingsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.AppTheme)
+        supportActionBar?.title = getString(R.string.options_title)
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.settings_activity)
