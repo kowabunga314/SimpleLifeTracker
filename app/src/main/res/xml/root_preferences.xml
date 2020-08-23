@@ -5,12 +5,12 @@
     <PreferenceCategory app:title="@string/basic_header" >
 
         <Preference
-            app:key="key_reset_game"
+            app:key="@string/key_reset_game"
             app:title="Reset"
             app:summary="Reset current game"/>
 
         <CheckBoxPreference
-            app:key="key_flag_reset_game"
+            app:key="@string/key_flag_reset_game"
             app:isPreferenceVisible="false"
             app:defaultValue="false"/>
 
@@ -18,7 +18,7 @@
             app:defaultValue="key_system_default"
             app:entries="@array/display_modes"
             app:entryValues="@array/display_values"
-            app:key="display_mode"
+            app:key="@string/key_display_mode"
             app:title="@string/display_title"
             app:useSimpleSummaryProvider="true"
             app:summary="@string/preference_display_mode_description" />

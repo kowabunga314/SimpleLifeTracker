@@ -32,5 +32,8 @@
     <string name="preference_display_mode_description">Sets the theme of the app.</string>
     <string name="preference_starting_life_summary">Control the starting life value for new games.</string>
     <string name="key_starting_life">starting_life</string>
+    <string name="key_reset_game">key_reset_game</string>
+    <string name="key_flag_reset_game">key_flag_reset_game</string>
+    <string name="key_display_mode">display_mode</string>
 
 </resources>
