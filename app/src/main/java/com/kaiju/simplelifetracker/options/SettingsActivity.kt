@@ -3,6 +3,8 @@ package com.kaiju.simplelifetracker.options
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.InputType
+import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.*
@@ -11,6 +13,8 @@ import com.kaiju.simplelifetracker.R
 class SettingsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.AppTheme)
+        supportActionBar?.title = getString(R.string.options_title)
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.settings_activity)
@@ -22,7 +26,18 @@ class SettingsActivity : AppCompatActivity() {
 
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                this.finish()
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
     class SettingsFragment : PreferenceFragmentCompat() {
+
+        private var mToast: Toast? = null
 
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.root_preferences, rootKey)
@@ -42,7 +57,10 @@ class SettingsActivity : AppCompatActivity() {
                     resetFlag.isChecked = true
                 }
 
-                activity?.finish()
+//                activity?.finish()
+                if (mToast != null) mToast?.cancel()
+                mToast = Toast.makeText(context, "Game reset!", Toast.LENGTH_SHORT)
+                mToast?.show()
 
                 true
             }
