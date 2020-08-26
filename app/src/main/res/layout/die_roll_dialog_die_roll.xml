@@ -7,17 +7,17 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/layout_die_roll_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        android:text="Roll a die"
+        app:layout_constraintBottom_toTopOf="@+id/layout_die_roll_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/layout_die_roll_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,25 +27,25 @@
         app:srcCompat="@drawable/ic_d20_logo" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/layout_die_roll_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="Roll"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/layout_die_roll_image" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/layout_die_roll_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-light"
         android:text="20"
         android:textColor="#FFFFFF"
         android:textSize="72sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintBottom_toBottomOf="@+id/layout_die_roll_image"
+        app:layout_constraintEnd_toEndOf="@+id/layout_die_roll_image"
+        app:layout_constraintStart_toStartOf="@+id/layout_die_roll_image"
+        app:layout_constraintTop_toTopOf="@+id/layout_die_roll_image" />
 </androidx.constraintlayout.widget.ConstraintLayout>
