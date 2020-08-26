@@ -1,6 +1,5 @@
 package com.kaiju.simplelifetracker.options
 
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.InputType
 import android.view.MenuItem
@@ -17,7 +16,7 @@ class SettingsActivity : AppCompatActivity() {
         supportActionBar?.title = getString(R.string.options_title)
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.settings_activity)
+        setContentView(R.layout.settings_activity_menu)
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.settings, SettingsFragment())

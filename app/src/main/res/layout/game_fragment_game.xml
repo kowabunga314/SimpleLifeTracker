@@ -35,18 +35,27 @@
 
         </RelativeLayout>
 
-        <Button
-            android:id="@+id/game_button_menu"
+
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_gravity="center"
             android:layout_weight="1"
-            android:background="@drawable/rounded_button_low_vis"
-            android:fontFamily="sans-serif-light"
-            android:paddingLeft="40dp"
-            android:paddingRight="40dp"
-            android:text="@string/button_game_menu"
-            android:textColor="@color/textPrimary" />
+            android:layout_gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/game_button_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@drawable/rounded_button_low_vis"
+                android:fontFamily="sans-serif-light"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:text="@string/button_game_menu"
+                android:textColor="@color/textPrimary" />
+
+        </RelativeLayout>
+
 
         <RelativeLayout
             android:layout_width="match_parent"
