@@ -15,7 +15,7 @@
         android:layout_height="match_parent"
         android:weightSum="15"
         android:orientation="vertical"
-        android:background="@color/backgroundSecondary">
+        android:background="@color/backgroundPrimary">
 
         <RelativeLayout
             android:layout_width="match_parent"
