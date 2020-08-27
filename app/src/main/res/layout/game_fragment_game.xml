@@ -15,7 +15,7 @@
         android:layout_height="match_parent"
         android:weightSum="15"
         android:orientation="vertical"
-        android:background="@color/backgroundPrimary">
+        android:background="@color/backgroundSecondary">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -45,7 +45,8 @@
             <Button
                 android:id="@+id/game_button_menu"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
                 android:layout_gravity="center"
                 android:background="@drawable/rounded_button_low_vis"
                 android:fontFamily="sans-serif-light"
@@ -53,6 +54,18 @@
                 android:paddingRight="40dp"
                 android:text="@string/button_game_menu"
                 android:textColor="@color/textPrimary" />
+
+            <Button
+                android:id="@+id/game_button_roll_die"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="Roll"
+                android:background="@drawable/rounded_button_low_vis"
+                android:fontFamily="sans-serif-light"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:layout_toEndOf="@id/game_button_menu"/>
 
         </RelativeLayout>
 
