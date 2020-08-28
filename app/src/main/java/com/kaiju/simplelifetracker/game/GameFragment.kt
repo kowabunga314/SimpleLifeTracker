@@ -1,8 +1,6 @@
 package com.kaiju.simplelifetracker.game
 
-import android.app.Activity
 import android.app.Dialog
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -13,7 +11,6 @@ import android.view.Window
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.FragmentManager
-import androidx.preference.CheckBoxPreference
 import androidx.preference.PreferenceManager
 import com.kaiju.simplelifetracker.R
 import com.kaiju.simplelifetracker.options.SettingsActivity
@@ -73,17 +70,18 @@ class GameFragment : Fragment() {
         // Set roll die behavior
         rollButton.setOnClickListener {
             val dialog = activity?.let { it1 -> Dialog(it1) }
-            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-            dialog.setCancelable(false)
-            dialog.setContentView(R.layout.custom_layout)
-            val body = dialog.findViewById(R.id.body) as TextView
-            body.text = title
-            val yesBtn = dialog.findViewById(R.id.yesBtn) as Button
-            val noBtn = dialog.findViewById(R.id.noBtn) as TextView
-            yesBtn.setOnClickListener {
+            dialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
+            dialog?.setCancelable(false)
+            dialog?.setContentView(R.layout.die_roll_dialog_die_roll)
+//            val body = dialog.findViewById(R.id.body) as TextView
+//            body.text = title
+//            val yesBtn = dialog.findViewById(R.id.yesBtn) as Button
+//            val noBtn = dialog.findViewById(R.id.noBtn) as TextView
+            val rollButton = dialog?.findViewById(R.id.game_button_roll_die) as TextView
+            rollButton.setOnClickListener {
                 dialog.dismiss()
             }
-            noBtn.setOnClickListener { dialog.dismiss() }
+            rollButton.setOnClickListener { dialog.dismiss() }
             dialog.show()
         }
 
