@@ -1,6 +1,7 @@
 package com.kaiju.simplelifetracker.game
 
 import android.app.Activity
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -8,7 +9,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.widget.Button
+import android.widget.TextView
 import androidx.fragment.app.FragmentManager
 import androidx.preference.CheckBoxPreference
 import androidx.preference.PreferenceManager
@@ -50,7 +53,9 @@ class GameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val optionsButton = view.findViewById<Button>(R.id.game_button_menu)
+        val rollButton = view.findViewById<Button>(R.id.game_button_roll_die)
 
+        // Set menu behavior
         optionsButton.setOnClickListener {
 
             val intent = Intent(activity, SettingsActivity::class.java)
@@ -58,10 +63,28 @@ class GameFragment : Fragment() {
 
         }
 
+        // Set reset shortcut behavior
         optionsButton.setOnLongClickListener {
             resetScores(view)
 
             true
+        }
+
+        // Set roll die behavior
+        rollButton.setOnClickListener {
+            val dialog = activity?.let { it1 -> Dialog(it1) }
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+            dialog.setCancelable(false)
+            dialog.setContentView(R.layout.custom_layout)
+            val body = dialog.findViewById(R.id.body) as TextView
+            body.text = title
+            val yesBtn = dialog.findViewById(R.id.yesBtn) as Button
+            val noBtn = dialog.findViewById(R.id.noBtn) as TextView
+            yesBtn.setOnClickListener {
+                dialog.dismiss()
+            }
+            noBtn.setOnClickListener { dialog.dismiss() }
+            dialog.show()
         }
 
         // Change scores to value set in prefs
