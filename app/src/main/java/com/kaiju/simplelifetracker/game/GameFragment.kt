@@ -12,6 +12,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.FragmentManager
 import androidx.preference.PreferenceManager
+import com.kaiju.simplelifetracker.Dice.Die
 import com.kaiju.simplelifetracker.R
 import com.kaiju.simplelifetracker.options.SettingsActivity
 
@@ -78,10 +79,13 @@ class GameFragment : Fragment() {
 //            val yesBtn = dialog.findViewById(R.id.yesBtn) as Button
 //            val noBtn = dialog.findViewById(R.id.noBtn) as TextView
             val rollButton = dialog?.findViewById(R.id.game_button_roll_die) as TextView
-            rollButton.setOnClickListener {
-                dialog.dismiss()
-            }
-            rollButton.setOnClickListener { dialog.dismiss() }
+//            rollButton.setOnClickListener {
+//                dialog.dismiss()
+//            }
+
+            val die = Die(6)
+            rollButton.setOnClickListener { die.performRollInDialog(view) }
+
             dialog.show()
         }
 
