@@ -35,5 +35,6 @@
     <string name="key_reset_game">key_reset_game</string>
     <string name="key_flag_reset_game">key_flag_reset_game</string>
     <string name="key_display_mode">display_mode</string>
+    <string name="title_button_die_roll">ROLL</string>
 
 </resources>
