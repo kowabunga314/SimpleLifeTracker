@@ -78,13 +78,17 @@ class GameFragment : Fragment() {
 //            body.text = title
 //            val yesBtn = dialog.findViewById(R.id.yesBtn) as Button
 //            val noBtn = dialog.findViewById(R.id.noBtn) as TextView
-            val rollButton = dialog?.findViewById(R.id.game_button_roll_die) as TextView
+            val rollButton = dialog?.findViewById(R.id.layout_die_roll_image) as Button
 //            rollButton.setOnClickListener {
 //                dialog.dismiss()
 //            }
 
             val die = Die(6)
-            rollButton.setOnClickListener { die.performRollInDialog(view) }
+            rollButton.setOnClickListener {
+                val rollResult = die.roll()
+                val rollResultDisplay = view.findViewById<Button>(R.id.layout_die_roll_button)
+                rollResultDisplay.text = rollResult
+            }
 
             dialog.show()
         }
