@@ -38,16 +38,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_die_roll_image" />
 
-    <TextView
-        android:id="@+id/layout_die_roll_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-light"
-        android:text="20"
-        android:textColor="#FFFFFF"
-        android:textSize="72sp"
-        app:layout_constraintBottom_toBottomOf="@+id/layout_die_roll_image"
-        app:layout_constraintEnd_toEndOf="@+id/layout_die_roll_image"
-        app:layout_constraintStart_toStartOf="@+id/layout_die_roll_image"
-        app:layout_constraintTop_toTopOf="@+id/layout_die_roll_image" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -84,7 +84,11 @@ class GameFragment : Fragment() {
 //            }
 
             val die = Die(6)
-            rollButton.setOnClickListener { die.performRollInDialog(view) }
+            rollButton.setOnClickListener {
+                val rollResult = die.roll()
+                val rollResultDisplay = view.findViewById<Button>(R.id.layout_die_roll_button)
+                rollResultDisplay.text = rollResult
+            }
 
             dialog.show()
         }
