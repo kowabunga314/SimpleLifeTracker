@@ -15,6 +15,7 @@ import androidx.preference.PreferenceManager
 import com.kaiju.simplelifetracker.Dice.Die
 import com.kaiju.simplelifetracker.R
 import com.kaiju.simplelifetracker.options.SettingsActivity
+import kotlinx.android.synthetic.main.die_roll_dialog_die_roll.view.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -86,7 +87,7 @@ class GameFragment : Fragment() {
             val die = Die(6)
             rollButton.setOnClickListener {
                 val rollResult = die.roll()
-                val rollResultDisplay = view.findViewById<Button>(R.id.layout_die_roll_button)
+                val rollResultDisplay = dialog?.findViewById<Button>(R.id.layout_die_roll_image)
                 rollResultDisplay.text = rollResult
             }
 
