@@ -4,13 +4,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingRight="60dp"
+    android:paddingLeft="60dp"
+    android:paddingTop="30dp"
+    android:paddingBottom="50dp">
 
     <TextView
         android:id="@+id/layout_die_roll_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-thin"
         android:text="Roll a die"
+        android:textColor="@color/textPrimary"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/layout_die_roll_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,10 +25,14 @@
 
     <Button
         android:id="@+id/layout_die_roll_image"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="@dimen/die_roll_button_up"
+        android:layout_height="@dimen/die_roll_button_up"
+        android:layout_marginTop="20dp"
         android:background="@drawable/die_background"
+        android:fontFamily="sans-serif-light"
         android:text="@string/title_button_die_roll"
+        android:textColor="@color/textPrimary"
+        android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,10 +40,15 @@
         app:srcCompat="@drawable/ic_d20_logo" />
 
     <Button
-        android:id="@+id/layout_die_roll_button"
+        android:id="@+id/layout_die_roll_dismiss"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/rounded_button_low_vis"
+        android:fontFamily="sans-serif-light"
         android:text="Done"
+        android:textColor="@color/textPrimary"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

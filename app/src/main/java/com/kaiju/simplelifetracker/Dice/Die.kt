@@ -11,6 +11,6 @@ class Die(num_sides: Int) {
 
     private val sides: Int = num_sides
 
-    fun roll(): String = Random.nextInt(1, sides).toString()
+    fun roll(): String = Random.nextInt(1, sides + 1).toString()
 
 }

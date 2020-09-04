@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.Button
-import android.widget.TextView
 import androidx.fragment.app.FragmentManager
 import androidx.preference.PreferenceManager
 import com.kaiju.simplelifetracker.Dice.Die
@@ -51,7 +50,7 @@ class GameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val optionsButton = view.findViewById<Button>(R.id.game_button_menu)
-        val rollButton = view.findViewById<Button>(R.id.game_button_roll_die)
+        val rollDialogButton = view.findViewById<Button>(R.id.game_button_roll_die)
 
         // Set menu behavior
         optionsButton.setOnClickListener {
@@ -69,7 +68,7 @@ class GameFragment : Fragment() {
         }
 
         // Set roll die behavior
-        rollButton.setOnClickListener {
+        rollDialogButton.setOnClickListener {
             val dialog = activity?.let { it1 -> Dialog(it1) }
             dialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
             dialog?.setCancelable(false)
@@ -78,15 +77,16 @@ class GameFragment : Fragment() {
 //            body.text = title
 //            val yesBtn = dialog.findViewById(R.id.yesBtn) as Button
 //            val noBtn = dialog.findViewById(R.id.noBtn) as TextView
-            val rollButton = dialog?.findViewById(R.id.layout_die_roll_image) as Button
-//            rollButton.setOnClickListener {
-//                dialog.dismiss()
-//            }
+            val dialogDismissButton = dialog?.findViewById(R.id.layout_die_roll_dismiss) as Button
+            dialogDismissButton.setOnClickListener {
+                dialog.dismiss()
+            }
 
             val die = Die(6)
+            val rollButton = dialog.findViewById<Button>(R.id.layout_die_roll_image)
             rollButton.setOnClickListener {
                 val rollResult = die.roll()
-                val rollResultDisplay = view.findViewById<Button>(R.id.layout_die_roll_button)
+                val rollResultDisplay = dialog.findViewById<Button>(R.id.layout_die_roll_image)
                 rollResultDisplay.text = rollResult
             }
 

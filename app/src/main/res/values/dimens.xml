@@ -4,4 +4,7 @@
     <dimen name="defaultIncrement">1</dimen>
     <dimen name="largeIncrement">5</dimen>
 
+    <dimen name="die_roll_button_up">125dp</dimen>
+    <dimen name="die_roll_button_down">120dp</dimen>
+
 </resources>
