@@ -27,7 +27,7 @@
         android:id="@+id/layout_die_roll_image"
         android:layout_width="@dimen/die_roll_button_up"
         android:layout_height="@dimen/die_roll_button_up"
-        android:layout_marginTop="20dp"
+        android:layout_margin="20dp"
         android:background="@drawable/die_background"
         android:fontFamily="sans-serif-light"
         android:text="@string/title_button_die_roll"

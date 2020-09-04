@@ -1,5 +1,6 @@
 package com.kaiju.simplelifetracker.game
 
+import android.animation.ValueAnimator
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +9,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
+import android.view.animation.AccelerateInterpolator
+import android.view.animation.AnimationUtils
+import android.view.animation.LinearInterpolator
+import android.view.animation.RotateAnimation
 import android.widget.Button
 import androidx.fragment.app.FragmentManager
 import androidx.preference.PreferenceManager
@@ -82,9 +87,15 @@ class GameFragment : Fragment() {
                 dialog.dismiss()
             }
 
-            val die = Die(6)
             val rollButton = dialog.findViewById<Button>(R.id.layout_die_roll_image)
+            // Get and set die roll value
+            val die = Die(6)
             rollButton.setOnClickListener {
+
+                // Animate die roll
+                val buttonAnimation = AnimationUtils.loadAnimation(context, R.anim.animation_die_roll)
+                rollButton.startAnimation(buttonAnimation)
+
                 val rollResult = die.roll()
                 val rollResultDisplay = dialog.findViewById<Button>(R.id.layout_die_roll_image)
                 rollResultDisplay.text = rollResult
