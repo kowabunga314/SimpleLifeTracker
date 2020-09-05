@@ -4,6 +4,7 @@ import android.animation.ValueAnimator
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -96,9 +97,12 @@ class GameFragment : Fragment() {
                 val buttonAnimation = AnimationUtils.loadAnimation(context, R.anim.animation_die_roll)
                 rollButton.startAnimation(buttonAnimation)
 
-                val rollResult = die.roll()
-                val rollResultDisplay = dialog.findViewById<Button>(R.id.layout_die_roll_image)
-                rollResultDisplay.text = rollResult
+                val handler = Handler()
+                handler.postDelayed({
+                    val rollResult = die.roll()
+                    val rollResultDisplay = dialog.findViewById<Button>(R.id.layout_die_roll_image)
+                    rollResultDisplay.text = rollResult
+                }, 500)
             }
 
             dialog.show()
