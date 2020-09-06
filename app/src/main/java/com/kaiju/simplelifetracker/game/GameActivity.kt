@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.ListPreference
+import androidx.preference.PreferenceManager
 import com.kaiju.simplelifetracker.R
 
 class GameActivity : AppCompatActivity() {
@@ -21,23 +22,19 @@ class GameActivity : AppCompatActivity() {
 //        actionBar?.hide()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        // Set theme preference
-        val listPreference = findPreference<ListPreference>(getString(R.string.key_display_mode))
-        listPreference?.setOnPreferenceChangeListener { preference, newValue ->
-
-            when (newValue) {
-                "light" -> {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                }
-                "dark" -> {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                }
-                "system_default" -> {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
-                }
+        // Set display mode from preferences
+        val prefs = PreferenceManager.getDefaultSharedPreferences(this)
+        val displayMode = prefs.getString("display_mode", "system_default")
+        when (displayMode) {
+            "light" -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
-
-            true
+            "dark" -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            }
+            "system_default" -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+            }
         }
     }
 
