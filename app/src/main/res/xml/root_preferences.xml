@@ -2,7 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:key="default_preferences">
 
-    <PreferenceCategory app:title="@string/basic_header" >
+    <PreferenceCategory app:title="@string/game_header" >
 
         <Preference
             app:key="@string/key_reset_game"
@@ -13,15 +13,6 @@
             app:key="@string/key_flag_reset_game"
             app:isPreferenceVisible="false"
             app:defaultValue="false"/>
-
-        <ListPreference
-            app:defaultValue="key_system_default"
-            app:entries="@array/display_modes"
-            app:entryValues="@array/display_values"
-            app:key="@string/key_display_mode"
-            app:title="@string/display_title"
-            app:useSimpleSummaryProvider="true"
-            app:summary="@string/preference_display_mode_description" />
 
         <EditTextPreference
             app:key="@string/key_starting_life"
@@ -36,6 +27,19 @@
             app:summary="Choose how many sides on your die"
             app:entries="@array/die_side_labels"
             app:entryValues="@array/die_side_values" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/general_header" >
+
+        <ListPreference
+            app:defaultValue="key_system_default"
+            app:entries="@array/display_modes"
+            app:entryValues="@array/display_values"
+            app:key="@string/key_display_mode"
+            app:title="@string/display_title"
+            app:useSimpleSummaryProvider="true"
+            app:summary="@string/preference_display_mode_description" />
 
     </PreferenceCategory>
 
