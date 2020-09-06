@@ -29,6 +29,14 @@
             app:defaultValue="@string/starting_life"
             app:summary="@string/preference_starting_life_summary" />
 
+        <ListPreference
+            app:key="@string/key_die_sides"
+            app:title="@string/preference_title_die_sides"
+            app:defaultValue="6"
+            app:summary="Choose how many sides on your die"
+            app:entries="@array/die_side_labels"
+            app:entryValues="@array/die_side_values" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>

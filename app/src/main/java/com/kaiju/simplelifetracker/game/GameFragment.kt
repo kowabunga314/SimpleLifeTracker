@@ -1,6 +1,5 @@
 package com.kaiju.simplelifetracker.game
 
-import android.animation.ValueAnimator
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
@@ -10,11 +9,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
-import android.view.animation.AccelerateInterpolator
 import android.view.animation.AnimationUtils
-import android.view.animation.LinearInterpolator
-import android.view.animation.RotateAnimation
 import android.widget.Button
+import android.widget.TextView
 import androidx.fragment.app.FragmentManager
 import androidx.preference.PreferenceManager
 import com.kaiju.simplelifetracker.Dice.Die
@@ -77,12 +74,17 @@ class GameFragment : Fragment() {
         rollDialogButton.setOnClickListener {
             val dialog = activity?.let { it1 -> Dialog(it1) }
             dialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
-            dialog?.setCancelable(false)
+            dialog?.setCancelable(true)
             dialog?.setContentView(R.layout.die_roll_dialog_die_roll)
-//            val body = dialog.findViewById(R.id.body) as TextView
-//            body.text = title
-//            val yesBtn = dialog.findViewById(R.id.yesBtn) as Button
-//            val noBtn = dialog.findViewById(R.id.noBtn) as TextView
+
+            // Set title based on selected die type
+            val prefs = PreferenceManager.getDefaultSharedPreferences(activity)
+            val dieSides = prefs.getString("die_sides", "6") ?: "6"
+            val title = dialog?.findViewById<TextView>(R.id.layout_die_roll_title)
+            if (title != null) {
+                title.text = getString(R.string.title_dialog_die_roll, dieSides)
+            }
+
             val dialogDismissButton = dialog?.findViewById(R.id.layout_die_roll_dismiss) as Button
             dialogDismissButton.setOnClickListener {
                 dialog.dismiss()
@@ -90,7 +92,7 @@ class GameFragment : Fragment() {
 
             val rollButton = dialog.findViewById<Button>(R.id.layout_die_roll_image)
             // Get and set die roll value
-            val die = Die(6)
+            val die = Die(dieSides.toInt())
             rollButton.setOnClickListener {
 
                 // Animate die roll
