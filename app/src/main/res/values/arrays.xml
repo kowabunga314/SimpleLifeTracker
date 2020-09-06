@@ -11,4 +11,25 @@
         <item>light</item>
         <item>dark</item>
     </string-array>
+
+    <!-- Die Sides Preference -->
+    <string-array name="die_side_labels">
+        <item>d4</item>
+        <item>d6</item>
+        <item>d8</item>
+        <item>d10</item>
+        <item>d12</item>
+        <item>d20</item>
+        <item>d100</item>
+    </string-array>
+
+    <string-array name="die_side_values">
+        <item>4</item>
+        <item>6</item>
+        <item>8</item>
+        <item>10</item>
+        <item>12</item>
+        <item>20</item>
+        <item>100</item>
+    </string-array>
 </resources>

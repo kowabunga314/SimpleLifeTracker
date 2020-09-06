@@ -3,6 +3,9 @@ package com.kaiju.simplelifetracker.game
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.preference.ListPreference
+import androidx.preference.PreferenceManager
 import com.kaiju.simplelifetracker.R
 
 class GameActivity : AppCompatActivity() {
@@ -18,6 +21,21 @@ class GameActivity : AppCompatActivity() {
         // status bar is hidden, so hide that too if necessary.
 //        actionBar?.hide()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        // Set display mode from preferences
+        val prefs = PreferenceManager.getDefaultSharedPreferences(this)
+        val displayMode = prefs.getString("display_mode", "system_default")
+        when (displayMode) {
+            "light" -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
+            "dark" -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            }
+            "system_default" -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+            }
+        }
     }
 
     override fun onResume() {
