@@ -10,7 +10,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.view.animation.AnimationUtils
+import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.Spinner
 import android.widget.TextView
 import androidx.fragment.app.FragmentManager
 import androidx.preference.PreferenceManager
@@ -89,6 +91,17 @@ class GameFragment : Fragment() {
             dialogDismissButton.setOnClickListener {
                 dialog.dismiss()
             }
+
+            // Set die roll spinner behavior
+            val spinner: Spinner = dialog.findViewById(R.id.spinner_die_sides)
+            context?.let { it1 -> ArrayAdapter.createFromResource(
+                it1,
+                R.array.die_side_labels,
+                android.R.layout.simple_spinner_item
+            ).also { adapter ->
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                spinner.adapter = adapter
+            } }
 
             val rollButton = dialog.findViewById<Button>(R.id.layout_die_roll_image)
             // Get and set die roll value
