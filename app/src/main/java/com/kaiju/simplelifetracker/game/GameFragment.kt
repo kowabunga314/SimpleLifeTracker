@@ -10,7 +10,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.view.animation.AnimationUtils
+import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.Spinner
 import android.widget.TextView
 import androidx.fragment.app.FragmentManager
 import androidx.preference.PreferenceManager
@@ -90,6 +92,17 @@ class GameFragment : Fragment() {
                 dialog.dismiss()
             }
 
+            // Set die roll spinner behavior
+            val spinner: Spinner = dialog.findViewById(R.id.spinner_die_sides)
+            context?.let { it1 -> ArrayAdapter.createFromResource(
+                it1,
+                R.array.die_side_labels,
+                android.R.layout.simple_spinner_item
+            ).also { adapter ->
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                spinner.adapter = adapter
+            } }
+
             val rollButton = dialog.findViewById<Button>(R.id.layout_die_roll_image)
             // Get and set die roll value
             val die = Die(dieSides.toInt())
@@ -99,12 +112,13 @@ class GameFragment : Fragment() {
                 val buttonAnimation = AnimationUtils.loadAnimation(context, R.anim.animation_die_roll)
                 rollButton.startAnimation(buttonAnimation)
 
+                // Set new value halfway through the animation
                 val handler = Handler()
                 handler.postDelayed({
                     val rollResult = die.roll()
                     val rollResultDisplay = dialog.findViewById<Button>(R.id.layout_die_roll_image)
                     rollResultDisplay.text = rollResult
-                }, 500)
+                }, getString(R.string.die_roll_animation_duration).toLong()/2)
             }
 
             dialog.show()
