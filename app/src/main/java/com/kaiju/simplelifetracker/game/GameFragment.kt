@@ -99,12 +99,13 @@ class GameFragment : Fragment() {
                 val buttonAnimation = AnimationUtils.loadAnimation(context, R.anim.animation_die_roll)
                 rollButton.startAnimation(buttonAnimation)
 
+                // Set new value halfway through the animation
                 val handler = Handler()
                 handler.postDelayed({
                     val rollResult = die.roll()
                     val rollResultDisplay = dialog.findViewById<Button>(R.id.layout_die_roll_image)
                     rollResultDisplay.text = rollResult
-                }, 500)
+                }, getString(R.string.die_roll_animation_duration).toLong()/2)
             }
 
             dialog.show()

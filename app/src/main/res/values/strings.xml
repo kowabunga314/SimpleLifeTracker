@@ -42,5 +42,6 @@
     <string name="title_dialog_die_roll">Roll a d%s</string>
     <string name="title_button_die_roll">?</string>
     <string name="preference_title_die_sides">Die Sides</string>
+    <string name="die_roll_animation_duration">950</string>
 
 </resources>
