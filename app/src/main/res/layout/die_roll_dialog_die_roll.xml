@@ -10,27 +10,33 @@
     android:paddingTop="20dp"
     android:paddingBottom="30dp">
 
-    <TextView
-        android:id="@+id/layout_die_roll_title"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-thin"
-        android:text="Roll a die"
-        android:textColor="@color/textPrimary"
-        android:textSize="24sp"
-        android:layout_margin="20dp"
         app:layout_constraintBottom_toTopOf="@+id/layout_die_roll_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" >
 
-    <Spinner
-        android:id="@+id/spinner_die_sides"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/layout_die_roll_title"
-        app:layout_constraintTop_toTopOf="@id/layout_die_roll_title"
-        app:layout_constraintBottom_toBottomOf="@id/layout_die_roll_title" />
+        <TextView
+            android:id="@+id/layout_die_roll_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-thin"
+            android:text="Roll a die"
+            android:textColor="@color/textPrimary"
+            android:textSize="24sp"
+            android:layout_margin="20dp"
+            android:layout_gravity="center_vertical"/>
+
+        <Spinner
+            android:id="@+id/spinner_die_sides"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/layout_die_roll_title"
+            android:layout_gravity="center_vertical"/>
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/layout_die_roll_image"
