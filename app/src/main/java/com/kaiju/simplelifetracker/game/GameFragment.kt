@@ -10,10 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.view.animation.AnimationUtils
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.Spinner
-import android.widget.TextView
+import android.widget.*
 import androidx.fragment.app.FragmentManager
 import androidx.preference.PreferenceManager
 import com.kaiju.simplelifetracker.Dice.Die
@@ -101,24 +98,14 @@ class GameFragment : Fragment() {
             ).also { adapter ->
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                 spinner.adapter = adapter
+                spinner.onItemSelectedListener = this.onItemSelected()
             } }
 
             val rollButton = dialog.findViewById<Button>(R.id.layout_die_roll_image)
             // Get and set die roll value
             val die = Die(dieSides.toInt())
             rollButton.setOnClickListener {
-
-                // Animate die roll
-                val buttonAnimation = AnimationUtils.loadAnimation(context, R.anim.animation_die_roll)
-                rollButton.startAnimation(buttonAnimation)
-
-                // Set new value halfway through the animation
-                val handler = Handler()
-                handler.postDelayed({
-                    val rollResult = die.roll()
-                    val rollResultDisplay = dialog.findViewById<Button>(R.id.layout_die_roll_image)
-                    rollResultDisplay.text = rollResult
-                }, getString(R.string.die_roll_animation_duration).toLong()/2)
+                onRollButtonClicked(dialog, rollButton, die)
             }
 
             dialog.show()
@@ -164,6 +151,32 @@ class GameFragment : Fragment() {
         player1Fragment.handleResetScore(view.findViewById(R.id.fragment_player_one))
         player2Fragment.handleResetScore(view.findViewById(R.id.fragment_player_two))
 
+    }
+
+    fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
+        // An item was selected. You can retrieve the selected item using
+        // parent.getItemAtPosition(pos)
+        val item = parent.getItemAtPosition(pos)
+
+        val prefs = PreferenceManager.getDefaultSharedPreferences(activity)
+        with (prefs.edit()) {
+            putString("die_sides", item as String?)
+            commit()
+        }
+    }
+
+    private fun onRollButtonClicked(dialog: Dialog, rollButton: Button, die: Die) {
+        // Animate die roll
+        val buttonAnimation = AnimationUtils.loadAnimation(context, R.anim.animation_die_roll)
+        rollButton.startAnimation(buttonAnimation)
+
+        // Set new value halfway through the animation
+        val handler = Handler()
+        handler.postDelayed({
+            val rollResult = die.roll()
+            val rollResultDisplay = dialog.findViewById<Button>(R.id.layout_die_roll_image)
+            rollResultDisplay.text = rollResult
+        }, getString(R.string.die_roll_animation_duration).toLong()/2)
     }
 
     companion object {
