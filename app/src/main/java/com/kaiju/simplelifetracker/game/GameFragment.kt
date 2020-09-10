@@ -78,10 +78,10 @@ class GameFragment : Fragment() {
 
             // Set title based on selected die type
             val prefs = PreferenceManager.getDefaultSharedPreferences(activity)
-            val dieSides = prefs.getString("die_sides", "6") ?: "6"
-            val title = dialog?.findViewById<TextView>(R.id.layout_die_roll_title)
-            if (title != null) {
-                title.text = getString(R.string.title_dialog_die_roll, dieSides)
+            val dieSides = prefs.getString("die_sides", "6")
+            val titleView = dialog?.findViewById<TextView>(R.id.layout_die_roll_title)
+            if (titleView != null) {
+                titleView.text = getString(R.string.title_dialog_die_roll, dieSides)
             }
 
             val dialogDismissButton = dialog?.findViewById(R.id.layout_die_roll_dismiss) as Button
@@ -94,17 +94,31 @@ class GameFragment : Fragment() {
             context?.let { it1 -> ArrayAdapter.createFromResource(
                 it1,
                 R.array.die_side_labels,
-                android.R.layout.simple_spinner_item
+                R.layout.spinner_layout
             ).also { adapter ->
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                 spinner.adapter = adapter
-                spinner.onItemSelectedListener = this.onItemSelected()
+                spinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
+                    override fun onNothingSelected(p0: AdapterView<*>?) {
+                        TODO("Not yet implemented")
+                    }
+
+                    override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
+                        // Write new value to prefs
+                        val sides = resources.getStringArray(R.array.die_side_values)[pos]
+                        with (prefs.edit()) {
+                            putString("die_sides", sides)
+                            commit()
+                        }
+                    }
+                }
             } }
 
             val rollButton = dialog.findViewById<Button>(R.id.layout_die_roll_image)
-            // Get and set die roll value
-            val die = Die(dieSides.toInt())
             rollButton.setOnClickListener {
+                // Get and set die roll value
+                val dieSides = prefs.getString("die_sides", "6") ?: "6"
+                val die = Die(dieSides.toInt())
                 onRollButtonClicked(dialog, rollButton, die)
             }
 
@@ -151,18 +165,6 @@ class GameFragment : Fragment() {
         player1Fragment.handleResetScore(view.findViewById(R.id.fragment_player_one))
         player2Fragment.handleResetScore(view.findViewById(R.id.fragment_player_two))
 
-    }
-
-    fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
-        // An item was selected. You can retrieve the selected item using
-        // parent.getItemAtPosition(pos)
-        val item = parent.getItemAtPosition(pos)
-
-        val prefs = PreferenceManager.getDefaultSharedPreferences(activity)
-        with (prefs.edit()) {
-            putString("die_sides", item as String?)
-            commit()
-        }
     }
 
     private fun onRollButtonClicked(dialog: Dialog, rollButton: Button, die: Die) {
