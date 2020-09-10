@@ -78,9 +78,10 @@ class GameFragment : Fragment() {
 
             // Set title based on selected die type
             val prefs = PreferenceManager.getDefaultSharedPreferences(activity)
-            val title = dialog?.findViewById<TextView>(R.id.layout_die_roll_title)
-            if (title != null) {
-                title.text = getString(R.string.title_dialog_die_roll, prefs.getString("die_sides", "6"))
+            val dieSides = prefs.getString("die_sides", "6")
+            val titleView = dialog?.findViewById<TextView>(R.id.layout_die_roll_title)
+            if (titleView != null) {
+                titleView.text = getString(R.string.title_dialog_die_roll, dieSides)
             }
 
             val dialogDismissButton = dialog?.findViewById(R.id.layout_die_roll_dismiss) as Button
