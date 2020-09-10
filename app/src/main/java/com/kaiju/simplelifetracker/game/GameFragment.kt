@@ -93,7 +93,7 @@ class GameFragment : Fragment() {
             context?.let { it1 -> ArrayAdapter.createFromResource(
                 it1,
                 R.array.die_side_labels,
-                android.R.layout.simple_spinner_item
+                R.layout.spinner_layout
             ).also { adapter ->
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                 spinner.adapter = adapter
