@@ -105,11 +105,10 @@ class GameFragment : Fragment() {
 
                     override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                         // Write new value to prefs
-                        val sides = resources.getStringArray(R.array.die_side_values)[pos]
-                        with (prefs.edit()) {
-                            putString("die_sides", sides)
-                            commit()
-                        }
+                        val sides = parent?.getItemAtPosition(pos).toString()
+                        val editor = prefs.edit()
+                        editor.putString("die_sides", sides)
+                        editor.apply()
                     }
                 }
             } }
