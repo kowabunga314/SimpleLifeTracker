@@ -78,7 +78,7 @@ class GameFragment : Fragment() {
 
             // Set title based on selected die type
             val prefs = PreferenceManager.getDefaultSharedPreferences(activity)
-            val dieSides = prefs.getString("die_sides", "6")
+            val dieSides = prefs.getString("die_sides", "6") ?: "6"
             val titleView = dialog?.findViewById<TextView>(R.id.layout_die_roll_title)
             if (titleView != null) {
                 titleView.text = getString(R.string.title_dialog_die_roll, dieSides)
@@ -105,11 +105,10 @@ class GameFragment : Fragment() {
 
                     override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                         // Write new value to prefs
-                        val sides = resources.getStringArray(R.array.die_side_values)[pos]
-                        with (prefs.edit()) {
-                            putString("die_sides", sides)
-                            commit()
-                        }
+                        val sides = parent?.getItemAtPosition(pos).toString()
+                        val editor = prefs.edit()
+                        editor.putString("die_sides", sides)
+                        editor.apply()
                     }
                 }
             } }
@@ -117,7 +116,6 @@ class GameFragment : Fragment() {
             val rollButton = dialog.findViewById<Button>(R.id.layout_die_roll_image)
             rollButton.setOnClickListener {
                 // Get and set die roll value
-                val dieSides = prefs.getString("die_sides", "6") ?: "6"
                 val die = Die(dieSides.toInt())
                 onRollButtonClicked(dialog, rollButton, die)
             }
