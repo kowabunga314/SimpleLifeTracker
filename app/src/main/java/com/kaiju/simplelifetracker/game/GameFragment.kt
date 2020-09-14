@@ -78,10 +78,10 @@ class GameFragment : Fragment() {
 
             // Set title based on selected die type
             val prefs = PreferenceManager.getDefaultSharedPreferences(activity)
-            val dieSides = prefs.getString("die_sides", "6") ?: "6"
+            var dieSides = prefs.getString("die_sides", "6") ?: "6"
             val titleView = dialog?.findViewById<TextView>(R.id.layout_die_roll_title)
             if (titleView != null) {
-                titleView.text = getString(R.string.title_dialog_die_roll, dieSides)
+                titleView.text = getString(R.string.title_dialog_die_roll)
             }
 
             val dialogDismissButton = dialog?.findViewById(R.id.layout_die_roll_dismiss) as Button
@@ -99,22 +99,26 @@ class GameFragment : Fragment() {
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                 spinner.adapter = adapter
                 spinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
-                    override fun onNothingSelected(p0: AdapterView<*>?) {
-                        TODO("Not yet implemented")
+                    override fun onNothingSelected(parent: AdapterView<*>?) {
+                        val pass: String
+
                     }
 
                     override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                        // Write new value to prefs
-                        val sides = resources.getStringArray(R.array.die_side_values)[pos]
-                        val editor = prefs.edit()
-                        editor.putString("die_sides", sides)
-                        editor.apply()
+                        if (pos > 0) {
+                            // Write new value to prefs
+                            val sides = resources.getStringArray(R.array.die_side_values)[pos]
+                            val editor = prefs.edit()
+                            editor.putString("die_sides", sides)
+                            editor.apply()
+                        }
                     }
                 }
             } }
 
             val rollButton = dialog.findViewById<Button>(R.id.layout_die_roll_image)
             rollButton.setOnClickListener {
+                dieSides = prefs.getString("die_sides", "6") ?: "6"
                 // Get and set die roll value
                 val die = Die(dieSides.toInt())
                 onRollButtonClicked(dialog, rollButton, die)
