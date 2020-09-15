@@ -73,15 +73,21 @@ class GameFragment : Fragment() {
         rollDialogButton.setOnClickListener {
             val dialog = activity?.let { it1 -> Dialog(it1) }
             dialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
+            // Clicking outside of dialog or OS back button closes dialog
             dialog?.setCancelable(true)
             dialog?.setContentView(R.layout.die_roll_dialog_die_roll)
 
-            // Set title based on selected die type
+            // Set status to let us know we're setting up the dialog
+            var initializing = true
+            // Get prefs, including die sides
             val prefs = PreferenceManager.getDefaultSharedPreferences(activity)
             var dieSides = prefs.getString("die_sides", "6") ?: "6"
+
+            // Set dialog title line
             val titleView = dialog?.findViewById<TextView>(R.id.layout_die_roll_title)
             if (titleView != null) {
-                titleView.text = getString(R.string.title_dialog_die_roll)
+                val title = getString(R.string.title_dialog_die_roll)
+                titleView.text = title
             }
 
             val dialogDismissButton = dialog?.findViewById(R.id.layout_die_roll_dismiss) as Button
@@ -105,13 +111,19 @@ class GameFragment : Fragment() {
                     }
 
                     override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                        if (pos > 0) {
+                        if (!initializing) {
                             // Write new value to prefs
                             val sides = resources.getStringArray(R.array.die_side_values)[pos]
                             val editor = prefs.edit()
                             editor.putString("die_sides", sides)
                             editor.apply()
+                        } else {
+                            // Get position of selected die type and set spinner value
+                            val dieTypes = resources.getStringArray(R.array.die_side_values)
+                            val selectedIndex = dieTypes.indexOf(dieSides)
+                            spinner.setSelection(selectedIndex)
                         }
+                        initializing = false
                     }
                 }
             } }
