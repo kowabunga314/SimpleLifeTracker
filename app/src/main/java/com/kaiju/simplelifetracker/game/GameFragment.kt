@@ -2,6 +2,8 @@ package com.kaiju.simplelifetracker.game
 
 import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
 import androidx.fragment.app.Fragment
@@ -76,6 +78,7 @@ class GameFragment : Fragment() {
             // Clicking outside of dialog or OS back button closes dialog
             dialog?.setCancelable(true)
             dialog?.setContentView(R.layout.die_roll_dialog_die_roll)
+            dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
             // Set status to let us know we're setting up the dialog
             var initializing = true
