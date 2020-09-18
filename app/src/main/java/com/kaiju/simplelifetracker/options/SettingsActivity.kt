@@ -56,7 +56,7 @@ class SettingsActivity : AppCompatActivity() {
                     resetFlag.isChecked = true
                 }
 
-//                activity?.finish()
+                activity?.finish()
                 if (mToast != null) mToast?.cancel()
                 mToast = Toast.makeText(context, "Game reset!", Toast.LENGTH_SHORT)
                 mToast?.show()
