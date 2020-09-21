@@ -7,7 +7,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.*
+import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.kaiju.simplelifetracker.R
 
 class SettingsActivity : AppCompatActivity() {
@@ -24,7 +26,11 @@ class SettingsActivity : AppCompatActivity() {
             .commit()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val adView = findViewById<AdView>(R.id.settings_ad_view)
+        MobileAds.initialize(this) {}
+
+        var adView = findViewById<AdView>(R.id.settings_ad_view)
+        val adRequest = AdRequest.Builder().build()
+        adView.loadAd(adRequest)
 
     }
 
