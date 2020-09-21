@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.*
 import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
 import com.kaiju.simplelifetracker.R
@@ -28,8 +29,12 @@ class SettingsActivity : AppCompatActivity() {
 
         MobileAds.initialize(this) {}
 
-        var adView = findViewById<AdView>(R.id.settings_ad_view)
+//        <!--    test id: ca-app-pub-3940256099942544/6300978111-->
+//        <!--    real id: ca-app-pub-5762759669667564/2794011733-->
+        val adView = findViewById<AdView>(R.id.settings_ad_view)
         val adRequest = AdRequest.Builder().build()
+        adView.adSize = AdSize.BANNER
+        adView.adUnitId = "ca-app-pub-3940256099942544/6300978111"
         adView.loadAd(adRequest)
 
     }
