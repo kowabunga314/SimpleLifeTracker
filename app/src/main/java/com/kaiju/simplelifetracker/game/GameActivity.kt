@@ -6,6 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.ListPreference
 import androidx.preference.PreferenceManager
+import com.google.android.gms.ads.MobileAds
 import com.kaiju.simplelifetracker.R
 
 class GameActivity : AppCompatActivity() {
