@@ -96,6 +96,22 @@ class SettingsActivity : AppCompatActivity() {
                 true
             }
 
+            val startingLifePreference = findPreference<Preference>(getString(R.string.key_starting_life))
+            startingLifePreference?.summary = preferenceManager.sharedPreferences.getString(getString(R.string.key_starting_life), "20")
+            startingLifePreference?.setOnPreferenceChangeListener { preference, newValue ->
+                preference.summary = newValue.toString()
+
+                true
+            }
+
+            val dieSidesPreference = findPreference<Preference>(getString(R.string.key_die_sides))
+            dieSidesPreference?.summary = preferenceManager.sharedPreferences.getString(getString(R.string.key_die_sides), "6")
+            dieSidesPreference?.setOnPreferenceChangeListener { preference, newValue ->
+                preference.summary = newValue.toString()
+
+                true
+            }
+
         }
 
     }
