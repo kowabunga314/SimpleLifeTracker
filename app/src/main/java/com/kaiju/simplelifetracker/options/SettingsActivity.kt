@@ -33,8 +33,8 @@ class SettingsActivity : AppCompatActivity() {
 //        <!--    real id: ca-app-pub-5762759669667564/2794011733-->
         val adView = findViewById<AdView>(R.id.settings_ad_view)
         val adRequest = AdRequest.Builder().build()
-        adView.adSize = AdSize.BANNER
-        adView.adUnitId = "ca-app-pub-3940256099942544/6300978111"
+//        adView.adSize = AdSize.BANNER
+//        adView.adUnitId = "ca-app-pub-3940256099942544/6300978111"
         adView.loadAd(adRequest)
 
     }
