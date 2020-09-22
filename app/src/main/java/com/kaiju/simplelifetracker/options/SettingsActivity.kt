@@ -27,14 +27,13 @@ class SettingsActivity : AppCompatActivity() {
             .commit()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        // Initialize ads module
         MobileAds.initialize(this) {}
-
-//        <!--    test id: ca-app-pub-3940256099942544/6300978111-->
-//        <!--    real id: ca-app-pub-5762759669667564/2794011733-->
+        // Get ad view
         val adView = findViewById<AdView>(R.id.settings_ad_view)
+        // Formulate request for ad
         val adRequest = AdRequest.Builder().build()
-//        adView.adSize = AdSize.BANNER
-//        adView.adUnitId = "ca-app-pub-3940256099942544/6300978111"
+        // load ad
         adView.loadAd(adRequest)
 
     }

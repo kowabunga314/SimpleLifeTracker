@@ -21,7 +21,7 @@
     <string name="title_activity_settings">SettingsActivity</string>
 
     <!-- Preference Titles -->
-    <string name="game_header">Game</string>
+    <string name="game_header">Game Preferences</string>
     <string name="general_header">General</string>
 
     <!-- Display Preferences -->

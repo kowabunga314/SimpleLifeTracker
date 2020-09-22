@@ -2,12 +2,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:key="default_preferences">
 
-    <PreferenceCategory app:title="@string/game_header" >
+    <Preference
+        app:key="@string/key_reset_game"
+        app:title="Reset"
+        app:summary="Reset current game"/>
 
-        <Preference
-            app:key="@string/key_reset_game"
-            app:title="Reset"
-            app:summary="Reset current game"/>
+    <PreferenceCategory app:title="@string/game_header" >
 
         <CheckBoxPreference
             app:key="@string/key_flag_reset_game"
