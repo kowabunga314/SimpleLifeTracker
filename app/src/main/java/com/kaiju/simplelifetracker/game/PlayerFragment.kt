@@ -65,14 +65,20 @@ class PlayerFragment : Fragment() {
         // Get TextView
         val scoreTextView = view.findViewById<TextView>(R.id.game_textview_score)
         // Get score as integer from TextView
-        val scoreText = scoreTextView.text.toString()
+        var scoreText = scoreTextView.text.toString()
+
+        // Check for scores that are too large to be held in integer val
+        if (scoreText.length > 9) {
+            scoreText = "999999999"
+        }
+
         // Calculate new score
         try {
             val newScore = scoreText.toInt() + value
             // Set TextView value to new score
             scoreTextView.text = newScore.toString()
         } catch (e: Exception) {
-            return
+
         }
     }
 
