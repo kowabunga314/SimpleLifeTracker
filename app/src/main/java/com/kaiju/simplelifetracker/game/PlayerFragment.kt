@@ -70,6 +70,9 @@ class PlayerFragment : Fragment() {
         // Check for scores that are too large to be held in integer val
         if (scoreText.length > 9) {
             scoreText = "999999999"
+            if (mToast != null) mToast?.cancel()
+            mToast = Toast.makeText(context, "Can't go higher!", Toast.LENGTH_SHORT)
+            mToast?.show()
         }
 
         // Calculate new score
@@ -78,7 +81,7 @@ class PlayerFragment : Fragment() {
             // Set TextView value to new score
             scoreTextView.text = newScore.toString()
         } catch (e: Exception) {
-
+            return
         }
     }
 
