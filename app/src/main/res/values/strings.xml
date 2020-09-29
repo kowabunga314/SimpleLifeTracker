@@ -43,5 +43,13 @@
     <string name="title_button_die_roll">?</string>
     <string name="preference_title_die_sides">Die Sides</string>
     <string name="die_roll_animation_duration">950</string>
+    <string name="key_small_increment">key_small_increment</string>
+    <string name="preference_title_small_increment">Small Increment</string>
+    <string name="small_increment_value">1</string>
+    <string name="preference_summary_small_increment">The number of points added or subtracted when \'+\' or \'-\' are pressed.</string>
+    <string name="key_large_increment">key_large_increment</string>
+    <string name="preference_title_large_increment">Large Increment</string>
+    <string name="large_increment_value">5</string>
+    <string name="preference_summary_large_increment">The number of points added or subtracted when \'+\' or \'-\' are held.</string>
 
 </resources>

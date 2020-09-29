@@ -20,6 +20,18 @@
             app:defaultValue="@string/starting_life"
             app:summary="@string/preference_starting_life_summary" />
 
+        <EditTextPreference
+            app:key="@string/key_small_increment"
+            app:title="@string/preference_title_small_increment"
+            app:defaultValue="@string/small_increment_value"
+            app:summary="@string/preference_summary_small_increment" />
+
+        <EditTextPreference
+            app:key="@string/key_large_increment"
+            app:title="@string/preference_title_large_increment"
+            app:defaultValue="@string/large_increment_value"
+            app:summary="@string/preference_summary_large_increment" />
+
         <ListPreference
             app:key="@string/key_die_sides"
             app:title="@string/preference_title_die_sides"
