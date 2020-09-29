@@ -67,9 +67,13 @@ class PlayerFragment : Fragment() {
         // Get score as integer from TextView
         val scoreText = scoreTextView.text.toString()
         // Calculate new score
-        val newScore = scoreText.toInt() + value
-        // Set TextView value to new score
-        scoreTextView.text = newScore.toString()
+        try {
+            val newScore = scoreText.toInt() + value
+            // Set TextView value to new score
+            scoreTextView.text = newScore.toString()
+        } catch (e: Exception) {
+            return
+        }
     }
 
     private fun handleDecrementScore(view: View, value: Int = 1) {
