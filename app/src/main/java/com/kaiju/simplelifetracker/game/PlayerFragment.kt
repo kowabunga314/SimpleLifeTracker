@@ -62,9 +62,17 @@ class PlayerFragment : Fragment() {
             return@setOnLongClickListener true
         }
 
-        negativeButton.setOnClickListener { handleDecrementScore(scoreTextView) }
+        negativeButton.setOnClickListener {
+            var incrementString = prefs.getString("key_small_increment", "1") ?: "1"
+            var incrementValue = incrementString.toInt() * -1
+
+            handleDecrementScore(scoreTextView, incrementValue)
+        }
         negativeButton.setOnLongClickListener {
-            handleDecrementScore(scoreTextView, 5)
+            var incrementString = prefs.getString("key_small_increment", "1") ?: "1"
+            var incrementValue = incrementString.toInt() * -1
+
+            handleDecrementScore(scoreTextView, incrementValue)
             return@setOnLongClickListener true
         }
 
