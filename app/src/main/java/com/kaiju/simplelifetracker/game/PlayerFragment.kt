@@ -24,6 +24,7 @@ class PlayerFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var startingLife: String? = "20"
     private var mToast: Toast? = null
+    private val prefs = PreferenceManager.getDefaultSharedPreferences(activity)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,9 +48,17 @@ class PlayerFragment : Fragment() {
         val scoreTextView = view.findViewById<TextView>(R.id.game_textview_score)
         val negativeButton = view.findViewById<Button>(R.id.game_button_negative)
 
-        positiveButton.setOnClickListener { handleIncrementScore(scoreTextView) }
+        positiveButton.setOnClickListener {
+            var incrementString = prefs.getString("key_small_increment", "1") ?: "1"
+            var incrementValue = incrementString.toInt()
+
+            handleIncrementScore(scoreTextView, incrementValue)
+        }
         positiveButton.setOnLongClickListener {
-            handleIncrementScore(scoreTextView, 5)
+            var incrementString = prefs.getString("key_small_increment", "1") ?: "1"
+            var incrementValue = incrementString.toInt()
+
+            handleIncrementScore(scoreTextView, incrementValue)
             return@setOnLongClickListener true
         }
 
@@ -74,6 +83,8 @@ class PlayerFragment : Fragment() {
             mToast = Toast.makeText(context, "Can't go higher!", Toast.LENGTH_SHORT)
             mToast?.show()
         }
+
+        // Get increment value from preferences
 
         // Calculate new score
         try {
