@@ -55,7 +55,7 @@ class PlayerFragment : Fragment() {
             handleIncrementScore(scoreTextView, incrementValue)
         }
         positiveButton.setOnLongClickListener {
-            var incrementString = prefs.getString("key_small_increment", "1") ?: "1"
+            var incrementString = prefs.getString("key_large_increment", "5") ?: "5"
             var incrementValue = incrementString.toInt()
 
             handleIncrementScore(scoreTextView, incrementValue)
@@ -69,7 +69,8 @@ class PlayerFragment : Fragment() {
             handleDecrementScore(scoreTextView, incrementValue)
         }
         negativeButton.setOnLongClickListener {
-            var incrementString = prefs.getString("key_small_increment", "1") ?: "1"
+            // Get increment from preferences
+            var incrementString = prefs.getString("key_large_increment", "5") ?: "5"
             var incrementValue = incrementString.toInt() * -1
 
             handleDecrementScore(scoreTextView, incrementValue)
