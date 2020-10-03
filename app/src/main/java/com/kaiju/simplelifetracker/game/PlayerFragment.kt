@@ -1,5 +1,6 @@
 package com.kaiju.simplelifetracker.game
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,6 +15,7 @@ import com.kaiju.simplelifetracker.R
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val STARTING_LIFE = "starting_life"
+private const val PREFS = "prefs"
 
 /**
  * A simple [Fragment] subclass.
@@ -24,7 +26,7 @@ class PlayerFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var startingLife: String? = "20"
     private var mToast: Toast? = null
-    private val prefs = PreferenceManager.getDefaultSharedPreferences(activity)
+    private val prefs: SharedPreferences? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,13 +51,13 @@ class PlayerFragment : Fragment() {
         val negativeButton = view.findViewById<Button>(R.id.game_button_negative)
 
         positiveButton.setOnClickListener {
-            var incrementString = prefs.getString("key_small_increment", "1") ?: "1"
+            var incrementString = prefs?.getString("key_small_increment", "1") ?: "1"
             var incrementValue = incrementString.toInt()
 
             handleIncrementScore(scoreTextView, incrementValue)
         }
         positiveButton.setOnLongClickListener {
-            var incrementString = prefs.getString("key_large_increment", "5") ?: "5"
+            var incrementString = prefs?.getString("key_large_increment", "5") ?: "5"
             var incrementValue = incrementString.toInt()
 
             handleIncrementScore(scoreTextView, incrementValue)
@@ -63,14 +65,14 @@ class PlayerFragment : Fragment() {
         }
 
         negativeButton.setOnClickListener {
-            var incrementString = prefs.getString("key_small_increment", "1") ?: "1"
+            var incrementString = prefs?.getString("key_small_increment", "1") ?: "1"
             var incrementValue = incrementString.toInt() * -1
 
             handleDecrementScore(scoreTextView, incrementValue)
         }
         negativeButton.setOnLongClickListener {
             // Get increment from preferences
-            var incrementString = prefs.getString("key_large_increment", "5") ?: "5"
+            var incrementString = prefs?.getString("key_large_increment", "5") ?: "5"
             var incrementValue = incrementString.toInt() * -1
 
             handleDecrementScore(scoreTextView, incrementValue)
