@@ -51,12 +51,15 @@ class PlayerFragment : Fragment() {
         val negativeButton = view.findViewById<Button>(R.id.game_button_negative)
 
         positiveButton.setOnClickListener {
+            // Get value from prefs
             var incrementString = prefs?.getString("key_small_increment", "1") ?: "1"
             var incrementValue = incrementString.toInt()
 
             handleIncrementScore(scoreTextView, incrementValue)
         }
+
         positiveButton.setOnLongClickListener {
+            // Get value from prefs
             var incrementString = prefs?.getString("key_large_increment", "5") ?: "5"
             var incrementValue = incrementString.toInt()
 
@@ -65,11 +68,14 @@ class PlayerFragment : Fragment() {
         }
 
         negativeButton.setOnClickListener {
+            // Get value from prefs
             var incrementString = prefs?.getString("key_small_increment", "1") ?: "1"
             var incrementValue = incrementString.toInt() * -1
 
+
             handleDecrementScore(scoreTextView, incrementValue)
         }
+
         negativeButton.setOnLongClickListener {
             // Get increment from preferences
             var incrementString = prefs?.getString("key_large_increment", "5") ?: "5"
