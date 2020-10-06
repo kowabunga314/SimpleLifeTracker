@@ -70,7 +70,7 @@ class PlayerFragment : Fragment() {
         negativeButton.setOnClickListener {
             // Get value from prefs
             var incrementString = prefs?.getString("key_small_increment", "1") ?: "1"
-            var incrementValue = incrementString.toInt() * -1
+            var incrementValue = incrementString.toInt()
 
 
             handleDecrementScore(scoreTextView, incrementValue)
@@ -79,7 +79,7 @@ class PlayerFragment : Fragment() {
         negativeButton.setOnLongClickListener {
             // Get increment from preferences
             var incrementString = prefs?.getString("key_large_increment", "5") ?: "5"
-            var incrementValue = incrementString.toInt() * -1
+            var incrementValue = incrementString.toInt()
 
             handleDecrementScore(scoreTextView, incrementValue)
             return@setOnLongClickListener true
@@ -95,9 +95,9 @@ class PlayerFragment : Fragment() {
 
         // Check for scores that are too large to be held in integer val
         if (scoreText.length > 9) {
-            scoreText = "999999999"
+            scoreText = getString(R.string.max_score)
             if (mToast != null) mToast?.cancel()
-            mToast = Toast.makeText(context, "Can't go higher!", Toast.LENGTH_SHORT)
+            mToast = Toast.makeText(context, getString(R.string.error_score_too_high), Toast.LENGTH_SHORT)
             mToast?.show()
         }
 
@@ -105,7 +105,13 @@ class PlayerFragment : Fragment() {
 
         // Calculate new score
         try {
-            val newScore = scoreText.toInt() + value
+            var newScore = scoreText.toInt() + value
+
+            // Don't exceed limit
+            if (newScore > getString(R.string.max_score).toInt()) {
+                newScore = getString(R.string.max_score).toInt()
+            }
+
             // Set TextView value to new score
             scoreTextView.text = newScore.toString()
         } catch (e: Exception) {
@@ -117,7 +123,16 @@ class PlayerFragment : Fragment() {
         // Get TextView
         val scoreTextView = view.findViewById<TextView>(R.id.game_textview_score)
         // Get current score from TextView
-        val scoreText = scoreTextView.text.toString()
+        var scoreText = scoreTextView.text.toString()
+
+        // Check length of score before casting to int
+        if (scoreText.length > 9) {
+            scoreText = getString(R.string.max_score)
+            if (mToast != null) mToast?.cancel()
+            mToast = Toast.makeText(context, getString(R.string.error_score_too_high), Toast.LENGTH_SHORT)
+            mToast?.show()
+        }
+
         // Calculate new score
         val newScore = scoreText.toInt() - value
 
