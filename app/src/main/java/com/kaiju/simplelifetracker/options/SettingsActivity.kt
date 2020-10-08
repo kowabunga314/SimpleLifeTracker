@@ -104,6 +104,26 @@ class SettingsActivity : AppCompatActivity() {
                 true
             }
 
+            val smallIncrementPreference = findPreference<Preference>(getString(R.string.key_small_increment))
+            // Set summary to include score
+            smallIncrementPreference?.summary =
+                "${smallIncrementPreference?.summary.toString()}\n\n${
+                    preferenceManager.sharedPreferences.getString(
+                        getString(R.string.key_small_increment),
+                        getString(R.string.small_increment_value)
+                    )
+                }"
+
+            val largeIncrementPreference = findPreference<Preference>(getString(R.string.key_large_increment))
+            // Set summary to include score
+            largeIncrementPreference?.summary =
+                "${largeIncrementPreference?.summary.toString()}\n\n${
+                    preferenceManager.sharedPreferences.getString(
+                        getString(R.string.key_large_increment),
+                        getString(R.string.large_increment_value)
+                    )
+                }"
+
             val dieSidesPreference = findPreference<Preference>(getString(R.string.key_die_sides))
             dieSidesPreference?.summary = preferenceManager.sharedPreferences.getString(getString(R.string.key_die_sides), "6")
             dieSidesPreference?.setOnPreferenceChangeListener { preference, newValue ->

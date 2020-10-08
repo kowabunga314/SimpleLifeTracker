@@ -26,7 +26,7 @@ class PlayerFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var startingLife: String? = "20"
     private var mToast: Toast? = null
-    private val prefs: SharedPreferences? = null
+    private var prefs: SharedPreferences? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +46,8 @@ class PlayerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        prefs = PreferenceManager.getDefaultSharedPreferences(activity)
+
         val positiveButton = view.findViewById<Button>(R.id.game_button_positive)
         val scoreTextView = view.findViewById<TextView>(R.id.game_textview_score)
         val negativeButton = view.findViewById<Button>(R.id.game_button_negative)
@@ -60,7 +62,7 @@ class PlayerFragment : Fragment() {
 
         positiveButton.setOnLongClickListener {
             // Get value from prefs
-            var incrementString = prefs?.getString("key_large_increment", "5") ?: "5"
+            var incrementString = this.prefs?.getString("key_large_increment", "5") ?: "5"
             var incrementValue = incrementString.toInt()
 
             handleIncrementScore(scoreTextView, incrementValue)
