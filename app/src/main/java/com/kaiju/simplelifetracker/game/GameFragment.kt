@@ -93,6 +93,7 @@ class GameFragment : Fragment() {
                 titleView.text = title
             }
 
+            // Set dialog dismiss button behavior
             val dialogDismissButton = dialog?.findViewById(R.id.layout_die_roll_dismiss) as Button
             dialogDismissButton.setOnClickListener {
                 dialog.dismiss()
