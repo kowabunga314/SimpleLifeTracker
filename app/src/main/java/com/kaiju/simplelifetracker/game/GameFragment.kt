@@ -89,6 +89,9 @@ class GameFragment : Fragment() {
             // Set dialog title line
             val titleView = dialog?.findViewById<TextView>(R.id.layout_die_roll_title)
             if (titleView != null) {
+                // Check whether coin or die
+                if (true) {}
+
                 val title = getString(R.string.title_dialog_die_roll)
                 titleView.text = title
             }
