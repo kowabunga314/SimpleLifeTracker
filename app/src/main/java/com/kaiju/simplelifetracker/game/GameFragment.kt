@@ -89,11 +89,7 @@ class GameFragment : Fragment() {
             // Set dialog title line
             val titleView = dialog?.findViewById<TextView>(R.id.layout_die_roll_title)
             if (titleView != null) {
-                // Check whether coin or die
-                if (true) {}
-
-                val title = getString(R.string.title_dialog_die_roll)
-                titleView.text = title
+                setDialogTitle(titleView, dieSides)
             }
 
             // Set dialog dismiss button behavior
@@ -124,11 +120,20 @@ class GameFragment : Fragment() {
                             val editor = prefs.edit()
                             editor.putString("die_sides", sides)
                             editor.apply()
+
+                            if (titleView != null) {
+                                setDialogTitle(titleView, sides)
+                            }
                         } else {
                             // Get position of selected die type and set spinner value
                             val dieTypes = resources.getStringArray(R.array.die_side_values)
                             val selectedIndex = dieTypes.indexOf(dieSides)
                             spinner.setSelection(selectedIndex)
+                            val sides = resources.getStringArray(R.array.die_side_values)[selectedIndex]
+
+                            if (titleView != null) {
+                                setDialogTitle(titleView, sides)
+                            }
                         }
                         initializing = false
                     }
@@ -174,6 +179,17 @@ class GameFragment : Fragment() {
         }
     }
 
+    private fun setDialogTitle(titleView: TextView, sides: String) {
+        var title = getString(R.string.title_dialog_die_roll)
+
+        // Check whether coin or die
+        if (sides == "2") {
+            title = getString(R.string.title_dialog_coin_flip)
+        }
+
+        titleView.text = title
+    }
+
     fun resetScores(view: View) {
 
         val player1Fragment = FragmentManager.findFragment<PlayerFragment>(view.findViewById(
@@ -196,7 +212,15 @@ class GameFragment : Fragment() {
         // Set new value halfway through the animation
         val handler = Handler()
         handler.postDelayed({
-            val rollResult = die.roll()
+            // Roll die
+            var rollResult = die.roll()
+
+            // Handle result string if coin toss
+            if (die.getSides() == 2) {
+                rollResult = if (rollResult == "1") "H" else "T"
+            }
+
+            // Set die roll result
             val rollResultDisplay = dialog.findViewById<Button>(R.id.layout_die_roll_image)
             rollResultDisplay.text = rollResult
         }, getString(R.string.die_roll_animation_duration).toLong()/2)
