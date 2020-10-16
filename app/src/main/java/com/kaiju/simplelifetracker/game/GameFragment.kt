@@ -89,11 +89,7 @@ class GameFragment : Fragment() {
             // Set dialog title line
             val titleView = dialog?.findViewById<TextView>(R.id.layout_die_roll_title)
             if (titleView != null) {
-                // Check whether coin or die
-                if (true) {}
-
-                val title = getString(R.string.title_dialog_die_roll)
-                titleView.text = title
+                setDialogTitle(titleView, dieSides)
             }
 
             // Set dialog dismiss button behavior
@@ -124,11 +120,20 @@ class GameFragment : Fragment() {
                             val editor = prefs.edit()
                             editor.putString("die_sides", sides)
                             editor.apply()
+
+                            if (titleView != null) {
+                                setDialogTitle(titleView, sides)
+                            }
                         } else {
                             // Get position of selected die type and set spinner value
                             val dieTypes = resources.getStringArray(R.array.die_side_values)
                             val selectedIndex = dieTypes.indexOf(dieSides)
                             spinner.setSelection(selectedIndex)
+                            val sides = resources.getStringArray(R.array.die_side_values)[selectedIndex]
+
+                            if (titleView != null) {
+                                setDialogTitle(titleView, sides)
+                            }
                         }
                         initializing = false
                     }
@@ -172,6 +177,17 @@ class GameFragment : Fragment() {
             putBoolean("key_flag_reset_game", false)
             commit()
         }
+    }
+
+    private fun setDialogTitle(titleView: TextView, sides: String) {
+        var title = getString(R.string.title_dialog_die_roll)
+
+        // Check whether coin or die
+        if (sides == "2") {
+            title = getString(R.string.title_dialog_coin_flip)
+        }
+
+        titleView.text = title
     }
 
     fun resetScores(view: View) {

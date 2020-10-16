@@ -40,6 +40,7 @@
     <string name="key_die_type">die_type</string>
     <string name="key_die_sides">die_sides</string>
     <string name="title_dialog_die_roll">Roll a</string>
+    <string name="title_dialog_coin_flip">Flip a</string>
     <string name="title_button_die_roll">?</string>
     <string name="preference_title_die_sides">Die Sides</string>
     <string name="die_roll_animation_duration">950</string>

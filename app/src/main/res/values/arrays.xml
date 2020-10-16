@@ -14,7 +14,7 @@
 
     <!-- Die Sides Preference -->
     <string-array name="die_side_labels">
-        <item>Coin Toss</item>
+        <item>coin</item>
         <item>d4</item>
         <item>d6</item>
         <item>d8</item>
