@@ -13,4 +13,6 @@ class Die(num_sides: Int) {
 
     fun roll(): String = Random.nextInt(1, sides + 1).toString()
 
+    fun getSides(): Int = sides
+
 }

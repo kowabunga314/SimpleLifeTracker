@@ -212,7 +212,15 @@ class GameFragment : Fragment() {
         // Set new value halfway through the animation
         val handler = Handler()
         handler.postDelayed({
-            val rollResult = die.roll()
+            // Roll die
+            var rollResult = die.roll()
+
+            // Handle result string if coin toss
+            if (die.getSides() == 2) {
+                rollResult = if (rollResult == "1") "H" else "T"
+            }
+
+            // Set die roll result
             val rollResultDisplay = dialog.findViewById<Button>(R.id.layout_die_roll_image)
             rollResultDisplay.text = rollResult
         }, getString(R.string.die_roll_animation_duration).toLong()/2)
