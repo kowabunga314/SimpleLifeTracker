@@ -121,6 +121,7 @@ class GameFragment : Fragment() {
                             editor.putString("die_sides", sides)
                             editor.apply()
 
+                            // Set title (die vs coin)
                             if (titleView != null) {
                                 setDialogTitle(titleView, sides)
                             }
