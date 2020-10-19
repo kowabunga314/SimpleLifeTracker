@@ -218,7 +218,8 @@ class GameFragment : Fragment() {
 
             // Handle result string if coin toss
             if (die.getSides() == 2) {
-                rollResult = if (rollResult == "1") "H" else "T"
+                rollResult = if (rollResult == "1") getString(R.string.heads_display) else getString(
+                                    R.string.tails_display)
             }
 
             // Set die roll result
