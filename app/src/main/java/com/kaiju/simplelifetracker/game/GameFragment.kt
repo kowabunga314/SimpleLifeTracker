@@ -192,6 +192,7 @@ class GameFragment : Fragment() {
 
     fun resetScores(view: View) {
 
+        // Get player fragment views
         val player1Fragment = FragmentManager.findFragment<PlayerFragment>(view.findViewById(
             R.id.fragment_player_one
         ))
@@ -199,6 +200,7 @@ class GameFragment : Fragment() {
             R.id.fragment_player_two
         ))
 
+        // Set reset score handler for each fragment
         player1Fragment.handleResetScore(view.findViewById(R.id.fragment_player_one))
         player2Fragment.handleResetScore(view.findViewById(R.id.fragment_player_two))
 
