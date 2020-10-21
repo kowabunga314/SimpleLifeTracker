@@ -181,6 +181,7 @@ class GameFragment : Fragment() {
     }
 
     private fun setDialogTitle(titleView: TextView, sides: String) {
+        // Get title from string resources
         var title = getString(R.string.title_dialog_die_roll)
 
         // Check whether coin or die
