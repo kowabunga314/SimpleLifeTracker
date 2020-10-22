@@ -121,6 +121,7 @@ class GameFragment : Fragment() {
                             editor.putString("die_sides", sides)
                             editor.apply()
 
+                            // Set title (die vs coin)
                             if (titleView != null) {
                                 setDialogTitle(titleView, sides)
                             }
@@ -180,6 +181,7 @@ class GameFragment : Fragment() {
     }
 
     private fun setDialogTitle(titleView: TextView, sides: String) {
+        // Get title from string resources
         var title = getString(R.string.title_dialog_die_roll)
 
         // Check whether coin or die
@@ -192,6 +194,7 @@ class GameFragment : Fragment() {
 
     fun resetScores(view: View) {
 
+        // Get player fragment views
         val player1Fragment = FragmentManager.findFragment<PlayerFragment>(view.findViewById(
             R.id.fragment_player_one
         ))
@@ -199,6 +202,7 @@ class GameFragment : Fragment() {
             R.id.fragment_player_two
         ))
 
+        // Set reset score handler for each fragment
         player1Fragment.handleResetScore(view.findViewById(R.id.fragment_player_one))
         player2Fragment.handleResetScore(view.findViewById(R.id.fragment_player_two))
 
@@ -217,7 +221,8 @@ class GameFragment : Fragment() {
 
             // Handle result string if coin toss
             if (die.getSides() == 2) {
-                rollResult = if (rollResult == "1") "H" else "T"
+                rollResult = if (rollResult == "1") getString(R.string.heads_display) else getString(
+                                    R.string.tails_display)
             }
 
             // Set die roll result

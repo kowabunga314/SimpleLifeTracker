@@ -56,5 +56,7 @@
     <string name="preference_summary_large_increment">The number of points added or subtracted when \'+\' or \'-\' are held.</string>
     <string name="error_score_too_high">Score too high!</string>
     <string name="max_score">999999999</string>
+    <string name="heads_display">H</string>
+    <string name="tails_display">T</string>
 
 </resources>
