@@ -53,8 +53,28 @@ class GameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Handle options button
+        configureOptionsButton(view)
+
+        // Handle roll dialog button
+        configureRollDialogButton(view)
+
+        // Change scores to value set in prefs
+        resetScores(view)
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        // Check for reset flag
+        if (getResetFlag() == true) {
+            view?.let { resetScores(it) }
+            clearResetFlag()
+        }
+    }
+
+    private fun configureOptionsButton(view: View) {
         val optionsButton = view.findViewById<Button>(R.id.game_button_menu)
-        val rollDialogButton = view.findViewById<Button>(R.id.game_button_roll_die)
 
         // Set menu behavior
         optionsButton.setOnClickListener {
@@ -70,6 +90,10 @@ class GameFragment : Fragment() {
 
             true
         }
+    }
+
+    private fun configureRollDialogButton(view: View) {
+        val rollDialogButton = view.findViewById<Button>(R.id.game_button_roll_die)
 
         // Set roll die behavior
         rollDialogButton.setOnClickListener {
@@ -150,19 +174,6 @@ class GameFragment : Fragment() {
             }
 
             dialog.show()
-        }
-
-        // Change scores to value set in prefs
-        resetScores(view)
-    }
-
-    override fun onResume() {
-        super.onResume()
-
-        // Check for reset flag
-        if (getResetFlag() == true) {
-            view?.let { resetScores(it) }
-            clearResetFlag()
         }
     }
 
