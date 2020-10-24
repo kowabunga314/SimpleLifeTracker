@@ -9,6 +9,7 @@ import android.view.WindowManager
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.kaiju.simplelifetracker.R
 
 /**
  * An example full-screen fragment that shows and hides the system UI (i.e.
