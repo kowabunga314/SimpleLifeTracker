@@ -56,6 +56,8 @@
     <string name="preference_summary_large_increment">The number of points added or subtracted when \'+\' or \'-\' are held.</string>
     <string name="error_score_too_high">Score too high!</string>
     <string name="max_score">999999999</string>
+
+    <!-- Multiplayer Game Strings -->
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
