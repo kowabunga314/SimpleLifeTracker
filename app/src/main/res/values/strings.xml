@@ -59,4 +59,8 @@
     <string name="heads_display">H</string>
     <string name="tails_display">T</string>
 
+    <!-- Multiplayer Game Strings -->
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
 </resources>
