@@ -9,6 +9,7 @@ import android.view.WindowManager
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.preference.PreferenceManager
 import com.kaiju.simplelifetracker.R
 
 /**
@@ -71,9 +72,16 @@ class MultiplayerGameFragment : Fragment() {
 
         visible = true
 
-        dummyButton = view.findViewById(R.id.dummy_button)
-        fullscreenContent = view.findViewById(R.id.fullscreen_content)
-        fullscreenContentControls = view.findViewById(R.id.fullscreen_content_controls)
+        // Set up preferences
+        val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+
+        // Get player count and generate player names for RecyclerView
+        val playerCount = prefs.getString("player_count", "2")!!.toInt()
+        var playerList = (1..playerCount).map { "player$it" }
+
+//        dummyButton = view.findViewById(R.id.dummy_button)
+//        fullscreenContent = view.findViewById(R.id.fullscreen_content)
+//        fullscreenContentControls = view.findViewById(R.id.fullscreen_content_controls)
         // Set up the user interaction to manually show or hide the system UI.
         fullscreenContent?.setOnClickListener { toggle() }
 
