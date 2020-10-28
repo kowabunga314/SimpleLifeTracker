@@ -79,9 +79,6 @@ class MultiplayerGameFragment : Fragment() {
         val playerCount = prefs.getString("player_count", "2")!!.toInt()
         var playerList = (1..playerCount).map { "player$it" }
 
-//        dummyButton = view.findViewById(R.id.dummy_button)
-//        fullscreenContent = view.findViewById(R.id.fullscreen_content)
-//        fullscreenContentControls = view.findViewById(R.id.fullscreen_content_controls)
         // Set up the user interaction to manually show or hide the system UI.
         fullscreenContent?.setOnClickListener { toggle() }
 

@@ -15,6 +15,13 @@
             app:defaultValue="false"/>
 
         <EditTextPreference
+            app:key="@string/key_player_count"
+            app:title="@string/title_player_count"
+            app:defaultValue="@string/default_player_count"
+            app:summary="@string/summary_player_count"
+            />
+
+        <EditTextPreference
             app:key="@string/key_starting_life"
             app:title="@string/preference_title_edit_starting_life"
             app:defaultValue="@string/starting_life"

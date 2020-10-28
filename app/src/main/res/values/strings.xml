@@ -49,16 +49,20 @@
     <string name="key_small_increment">key_small_increment</string>
     <string name="preference_title_small_increment">Small Increment</string>
     <string name="small_increment_value">1</string>
-    <string name="preference_summary_small_increment">The number of points added or subtracted when \'+\' or \'-\' are pressed.</string>
+    <string name="preference_summary_small_increment">Number of points gained or lost when \'+\' or \'-\' are pressed.</string>
     <string name="key_large_increment">key_large_increment</string>
     <string name="preference_title_large_increment">Large Increment</string>
     <string name="large_increment_value">5</string>
-    <string name="preference_summary_large_increment">The number of points added or subtracted when \'+\' or \'-\' are held.</string>
+    <string name="preference_summary_large_increment">Number of points gained or lost when \'+\' or \'-\' are held.</string>
     <string name="error_score_too_high">Score too high!</string>
     <string name="max_score">999999999</string>
 
     <!-- Multiplayer Game Strings -->
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="key_player_count">key_player_count</string>
+    <string name="title_player_count">Player Count</string>
+    <string name="default_player_count">2</string>
+    <string name="summary_player_count">Number of players on the table</string>
 
 </resources>
