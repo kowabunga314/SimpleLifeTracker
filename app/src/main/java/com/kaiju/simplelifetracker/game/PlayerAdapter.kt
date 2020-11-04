@@ -8,6 +8,8 @@ import android.widget.Adapter
 class PlayerAdapter: Adapter {
     override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
         TODO("Not yet implemented")
+        // Wire up buttons
+        // Wire up text views
     }
     //
 }
