@@ -49,9 +49,7 @@ class MultiplayerGameFragment : Fragment() {
      * while interacting with activity UI.
      */
     private val delayHideTouchListener = View.OnTouchListener { _, _ ->
-        if (AUTO_HIDE) {
-            delayedHide(AUTO_HIDE_DELAY_MILLIS)
-        }
+        if (AUTO_HIDE) delayedHide(AUTO_HIDE_DELAY_MILLIS)
         false
     }
 
